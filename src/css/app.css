@@ -7,7 +7,7 @@ html, body, #root, .App {
  height: 100%;
 }
 
-.App {
+.App, .App-body {
  height: 100%;
  position: relative;
 }
@@ -19,6 +19,122 @@ html, body, #root, .App {
  top: 0;
  right: 0;
  bottom: 0;
+}
+
+.App-body > header {
+ position: fixed;
+ z-index: 100;
+ background: #333;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 40px;
+}
+.App-body > header h1 {
+ text-align: center;
+ font-size: 24px;
+ line-height: 40px;
+ color: #fff;
+ font-weight: 100;
+ text-transform: uppercase;
+}
+
+.Menu {
+ position: absolute;
+ z-index: 101;
+ right: 0;
+ top: 8px;
+}
+.Menu button {
+ -webkit-appearance: none;
+ display: block;
+ border: 0;
+ background: 0;
+ width: 30px;
+ height: 23px;
+ margin-right: 20px;
+ position: relative;
+ transform: rotate(0deg);
+ transition: .5s ease-in-out;
+ cursor: pointer;
+ outline: none;
+}
+.Menu button span {
+ display: block;
+ position: absolute;
+ height: 4px;
+ width: 100%;
+ background: #fff;
+ border-radius: 4px;
+ opacity: 1;
+ left: 0;
+ transform: rotate(0deg);
+ transition: .25s ease-in-out;
+}
+.Menu button span:nth-child(1) {
+ top: 0;
+}
+.Menu button span:nth-child(2),
+.Menu button span:nth-child(3) {
+ top: 9px;
+}
+.Menu button span:nth-child(4) {
+ top: 18px;
+}
+.Menu.active button span:nth-child(1) {
+ top: 9px;
+ width: 0;
+ left: 50%;
+}
+.Menu.active button span:nth-child(2) {
+ transform: rotate(45deg);
+}
+.Menu.active button span:nth-child(3) {
+ transform: rotate(-45deg);
+}
+.Menu.active button span:nth-child(4) {
+ top: 9px;
+ width: 0;
+ left: 50%;
+}
+
+.Menu ul {
+ position: absolute;
+ right: 0;
+ top: 32px;
+ min-width: 250px;
+ background: rgba(255,255,255,.9);
+ box-shadow: -2px 2px 3px rgba(0,0,0,.6);
+ visibility: hidden;
+ opacity: 0;
+ list-style: none;
+ transition: .25s ease-in-out;
+}
+.Menu ul li {
+ font-size: 18px;
+ padding: 6px 20px;
+}
+.Menu ul li a {
+ text-decoration: none;
+ color: #000;
+}
+.Menu ul li a:hover {
+ color: #666;
+}
+.Menu ul li.selected {
+ background: #eee;
+ font-style: italic;
+}
+.Menu ul li.selected a {
+ /*color: #fff;*/
+}
+.Menu.active ul {
+ visibility: visible;
+ opacity: 1;
+}
+
+.App-body > .Chart {
+ top: 40px;
 }
 
 /*
