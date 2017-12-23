@@ -18,7 +18,7 @@ class Menu extends React.Component {
   const items = [
    {key:"home", name:"На главную", url:"/"},
    {key:"staff", name:"Численность", url:"/staff"},
-   {key:"1", name:"Выручка", url:"/"},
+   {key:"proceeds", name:"Выручка", url:"/proceeds"},
    {key:"2", name:"- по подразделениям", url:"/"},
    {key:"3", name:"- по контрагентам", url:"/"},
    {key:"4", name:"- на сотрудника", url:"/"},

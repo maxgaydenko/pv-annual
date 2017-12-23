@@ -4,16 +4,6 @@ import Menu from "./Menu";
 
 class Staff extends React.Component {
  componentWillMount() {
-  // const dataProviderHash = window._pvad.team.reduce((p,c)=>{
-  //  c.data.forEach(d => {
-  //   if(p[d.y])
-  //    p[d.y] += d.v;
-  //   else
-  //    p[d.y] = d.v;
-  //  })
-  //  return p;
-  // }, {});
-  // const dataProvider = Object.keys(dataProviderHash).map(y => ({y, v:dataProviderHash[y]}));
   const dataProvider = window._pvad.staff.reduce((p,c)=>{
    let item = {year:c.year, total:0};
    Object.keys(c.data).forEach(key => {
@@ -23,7 +13,7 @@ class Staff extends React.Component {
    p.push(item);
    return p;
   }, []);
-  const departments = window._pvad.departments;
+  const departments = window._pvad.staffDepartments;
   this.setState({dataProvider, departments});
   window.document.title = "Численность";
  }
@@ -40,27 +30,24 @@ class Staff extends React.Component {
    title: "Численность",
    valueField: "total",
    labelText: "[[total]]",
-   bullet: "round",
-   bulletSize: 0,
+   bullet: "none",
    fontSize: 18,
-   lineThickness: 1,
-   lineAlpha: .4,
+   lineThickness: 2,
+   lineAlpha: .2,
    dashLength: 8,
    lineColor: "#D00",
    // bulletColor: "#DD0000",
-   // color: "#DD0000"
+   color: "#666"
   });
 
   const config = {
    type: "serial",
    theme: "light",
+   language: "ru",
    fontSize: 14,
    legend: {
-    fontSize: 10,
+    fontSize: 13,
     position: "bottom",
-    // width: 400,
-    // left: 10,
-    // top: 5,
    },
    graphs: graphs,
    valueAxes: [{
