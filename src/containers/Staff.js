@@ -22,8 +22,6 @@ class Staff extends React.Component {
   let graphs = Object.keys(this.state.departments).map(depKey => ({
    title: this.state.departments[depKey].name,
    lineColor: this.state.departments[depKey].color,
-   // legendColor: this.state.departments[depKey].color,
-   // fillColors: this.state.departments[depKey].color,
    balloonText: "<b>[[title]]</b><br>[[category]]: <b>[[value]]</b>",
    valueField: depKey,
    fillAlphas: .8,
@@ -33,13 +31,13 @@ class Staff extends React.Component {
    title: "Численность",
    valueField: "total",
    labelText: "[[total]]",
+   balloonText: "",
    bullet: "none",
    fontSize: 18,
    lineThickness: 2,
    lineAlpha: .2,
    dashLength: 8,
    lineColor: "#D00",
-   // bulletColor: "#DD0000",
    color: "#666"
   });
 

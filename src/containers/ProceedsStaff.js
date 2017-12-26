@@ -69,7 +69,9 @@ class ProceedsStaff extends React.Component {
    valueAxes: [{
     id: "totalAxis",
     position: "right",
+    tickLength: 0,
     labelsEnabled: false,
+    axisAlpha: 0,
     gridAlpha: 0,
    }, {
     id: "ppAxis",

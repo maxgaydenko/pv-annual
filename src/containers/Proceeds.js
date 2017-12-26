@@ -31,6 +31,7 @@ class Proceeds extends React.Component {
    title: "Выручка по подразделениям",
    valueField: "total",
    labelText: "[[total]]",
+   balloonText: "",
    bullet: "none",
    fontSize: 18,
    lineThickness: 2,
