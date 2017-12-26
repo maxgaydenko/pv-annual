@@ -42,7 +42,6 @@ class Staff extends React.Component {
    // bulletColor: "#DD0000",
    color: "#666"
   });
-  console.log("Graphs", graphs);
 
   const config = {
    type: "serial",

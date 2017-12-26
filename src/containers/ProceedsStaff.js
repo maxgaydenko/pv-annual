@@ -22,7 +22,6 @@ class ProceedsStaff extends React.Component {
    return p;
   }, []);
   this.setState({dataProvider});
-  console.log("P", dataProvider);
   window.document.title = "Выручка на сотрудника";
  }
 

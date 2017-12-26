@@ -7,10 +7,68 @@ html, body, #root, .App {
  height: 100%;
 }
 
-.App, .App-body {
+.App, .App-body, .App-home {
  height: 100%;
  position: relative;
 }
+
+
+.App-home {
+}
+.App-home h1 {
+ position: absolute;
+ left: 0;
+ top: 10px;
+ width: 100%;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 24px;
+ font-weight: 100;
+ color: #5a4a42;
+}
+.App-home .logo-box {
+ position: absolute;
+ width: 100%;
+ left: 0;
+ top: 50%;
+ margin-top: -299px;
+ text-align: center;
+}
+.App-home .logo-box img {
+}
+.App-home .Menu {
+ position: absolute;
+ left: 0;
+ bottom: 0;
+ width: 100%;
+ background: #5a4a42;
+ padding: 10px 0 20px;
+}
+.App-home .Menu .logo {
+ display: none;
+}
+.App-home .Menu button {
+ display: none;
+}
+.App-home .Menu ul {
+ list-style: none;
+ display: flex;
+}
+.App-home .Menu li {
+ display: inline-block;
+ flex: 1;
+ font-size: 18px;
+
+ text-align: center;
+}
+.App-home .Menu a {
+ color: #FFF;
+ text-decoration: none;
+}
+.App-home .Menu a:hover {
+ color: #d1cf00;
+}
+
 
 .App-body header {
  position: fixed;
