@@ -37,6 +37,7 @@ class ProceedsStaff extends React.Component {
    bullet: "circle",
    bulletSize: 12,
    fontSize: 18,
+   lineColor: "#d1cf00",
    lineThickness: 4,
    // bulletColor: "#DD0000",
    // color: "#666"
@@ -50,6 +51,7 @@ class ProceedsStaff extends React.Component {
    bullet: "circle",
    bulletSize: 12,
    fontSize: 18,
+   lineColor: "#607985",
    lineThickness: 4,
    // bulletColor: "#DD0000",
    color: "#666"

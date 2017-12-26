@@ -2,12 +2,12 @@ window._pvad = {
 
  // численность (подразделения)
  staffDepartments: {
-  aup: {color:"#F08475", name:"АУП"},
-  prj: {color:"#E00400", name:"Проектирование"},
-  it:  {color:"#03DA03", name:"Информатизация"},
-  usu: {color:"#A03485", name:"Управление Сервисных Услуг"},
-  sv:  {color:"#937838", name:"Супервайзинг"},
-  gti: {color:"#BE30FF", name:"ГТИ"},
+  aup: {color:"#723425", name:"АУП"},//
+  prj: {color:"#607985", name:"Проектирование"},//
+  it:  {color:"#ca4440", name:"Информатизация"},//
+  usu: {color:"#72585c", name:"Управление Сервисных Услуг"},//
+  sv:  {color:"#d1cf00", name:"Супервайзинг"},//
+  gti: {color:"#f39b71", name:"ГТИ"},//
  },
  staff: [
   {year:2005, data:{aup:2,  sv:7}},
@@ -26,11 +26,11 @@ window._pvad = {
 
  // выручка (подразделения)
  proceedsDepartments: {
-  sv:  {color:"#458844", name:"Супервайзинг"},
-  it:  {color:"#923842", name:"ИТ"},
-  prj: {color:"#938431", name:"Проектирование"},
-  gti: {color:"#FD0374", name:"ГТИ"},
-  lc:  {color:"#093EBA", name:"УЦ"},
+  sv:  {color:"#d1cf00", name:"Супервайзинг"},//
+  it:  {color:"#ca4440", name:"ИТ"},//
+  prj: {color:"#607985", name:"Проектирование"},//
+  gti: {color:"#f39b71", name:"ГТИ"},//
+  lc:  {color:"#72585c", name:"УЦ"},//
  },
  proceeds: [
   {year:2005, data:{sv:3617}},
@@ -49,20 +49,20 @@ window._pvad = {
 
  // выручка (контрагенты)
  contractors: {
-  rosneft:  {color:"#DD0000", name:"Роснефть"},
-  lukoil:   {color:"#480000", name:"Лукойл"},
-  surgut:   {color:"#847583", name:"Сургутнефтегаз"},
-  gazprom:  {color:"#294785", name:"Газпром"},
-  gpn:      {color:"#94F034", name:"ГПН"},
-  tnk:      {color:"#482FAD", name:"ТНК"},
-  bashneft: {color:"#D03842", name:"Башнефть"},
-  belarus:  {color:"#039483", name:"Беларусь"},
-  russneft: {color:"#037303", name:"Русснефть"},
-  tatneft:  {color:"#019274", name:"Татнефть"},
-  zn:       {color:"#FA04D0", name:"Зарубежнефть"},
-  bke:      {color:"#945739", name:"БКЕ"},
-  vostok:   {color:"#DD0376", name:"Восток НАО"},
-  other:    {color:"#A0375D", name:"Прочее"},
+  rosneft:  {color:"#e18940", name:"Роснефть"},//
+  lukoil:   {color:"#b61917", name:"Лукойл"},//
+  surgut:   {color:"#847583", name:"Сургутнефтегаз"},//?
+  gazprom:  {color:"#1e8cca", name:"Газпром"},//
+  gpn:      {color:"#72a7da", name:"ГПН"},//
+  tnk:      {color:"#2c41c8", name:"ТНК"},//
+  bashneft: {color:"#DD0376", name:"Башнефть"},//
+  belarus:  {color:"#02aa53", name:"Беларусь"},
+  russneft: {color:"#608aa4", name:"Русснефть"},//
+  tatneft:  {color:"#cba130", name:"Татнефть"},//
+  zn:       {color:"#60943f", name:"Зарубежнефть"},//
+  bke:      {color:"#aa9b87", name:"БКЕ"},//
+  vostok:   {color:"#1c8f6d", name:"Восток НАО"},//
+  other:    {color:"#a1bf65", name:"Прочее"},//
  },
 
  contractorData: [
