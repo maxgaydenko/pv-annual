@@ -12,16 +12,7 @@ html, body, #root, .App {
  position: relative;
 }
 
-.Chart {
- position: absolute;
- z-index: 1;
- left: 0;
- top: 0;
- right: 0;
- bottom: 0;
-}
-
-.App-body > header {
+.App-body header {
  position: fixed;
  z-index: 100;
  background: #333;
@@ -30,7 +21,7 @@ html, body, #root, .App {
  right: 0;
  height: 40px;
 }
-.App-body > header h1 {
+.App-body header h1 {
  text-align: center;
  font-size: 24px;
  line-height: 40px;
@@ -39,15 +30,17 @@ html, body, #root, .App {
  text-transform: uppercase;
 }
 
-.Menu {
+.App-body .Menu {
  position: absolute;
  z-index: 101;
+ left: 0;
  right: 0;
  top: 8px;
+ text-align: right;
 }
-.Menu button {
+.App-body .Menu button {
  -webkit-appearance: none;
- display: block;
+ display: inline-block;
  border: 0;
  background: 0;
  width: 30px;
@@ -59,7 +52,7 @@ html, body, #root, .App {
  cursor: pointer;
  outline: none;
 }
-.Menu button span {
+.App-body .Menu button span {
  display: block;
  position: absolute;
  height: 4px;
@@ -71,34 +64,34 @@ html, body, #root, .App {
  transform: rotate(0deg);
  transition: .25s ease-in-out;
 }
-.Menu button span:nth-child(1) {
+.App-body .Menu button span:nth-child(1) {
  top: 0;
 }
-.Menu button span:nth-child(2),
-.Menu button span:nth-child(3) {
+.App-body .Menu button span:nth-child(2),
+.App-body .Menu button span:nth-child(3) {
  top: 9px;
 }
-.Menu button span:nth-child(4) {
+.App-body .Menu button span:nth-child(4) {
  top: 18px;
 }
-.Menu.active button span:nth-child(1) {
+.App-body .Menu.active button span:nth-child(1) {
  top: 9px;
  width: 0;
  left: 50%;
 }
-.Menu.active button span:nth-child(2) {
+.App-body .Menu.active button span:nth-child(2) {
  transform: rotate(45deg);
 }
-.Menu.active button span:nth-child(3) {
+.App-body .Menu.active button span:nth-child(3) {
  transform: rotate(-45deg);
 }
-.Menu.active button span:nth-child(4) {
+.App-body .Menu.active button span:nth-child(4) {
  top: 9px;
  width: 0;
  left: 50%;
 }
 
-.Menu ul {
+.App-body .Menu ul {
  position: absolute;
  right: 0;
  top: 32px;
@@ -108,33 +101,114 @@ html, body, #root, .App {
  visibility: hidden;
  opacity: 0;
  list-style: none;
+ text-align: left;
  transition: .25s ease-in-out;
 }
-.Menu ul li {
+.App-body .Menu ul li {
  font-size: 18px;
  padding: 6px 20px;
 }
-.Menu ul li a {
+.App-body .Menu ul li a {
  text-decoration: none;
  color: #000;
 }
-.Menu ul li a:hover {
+.App-body .Menu ul li a:hover {
  color: #666;
 }
-.Menu ul li.selected {
+.App-body .Menu ul li.selected {
  /*background: #eee;*/
  font-style: italic;
 }
-.Menu ul li.selected a {
+.App-body .Menu ul li.selected a {
  /*color: #fff;*/
 }
-.Menu.active ul {
+.App-body .Menu.active ul {
  visibility: visible;
  opacity: 1;
 }
 
 .App-body > .Chart {
+ position: absolute;
+ z-index: 1;
+ left: 0;
  top: 40px;
+ right: 0;
+ bottom: 0;
+}
+
+.PieBox {
+ display: flex;
+}
+.PieBox .Pie {
+ height: 100%;
+ flex: 1;
+}
+.PieBox .PieLabels {
+ background: #FFF;
+ padding: 16px 0;
+ width: 360px;
+ flex: none;
+}
+.PieBox .PieLabels ul {
+ list-style: none;
+}
+.PieBox .PieLabels ul li {
+ padding: 0 0 20px;
+}
+.PieBox .PieLabels ul li .marker {
+}
+.PieBox .PieLabels ul li .title {
+ display: flex;
+}
+.PieBox .PieLabels ul li .title i {
+ display: inline-block;
+ width: 30px;
+ height: 30px;
+ border: 1px #333 solid;
+ box-sizing: border-box;
+ align-self: flex-start;
+}
+.PieBox .PieLabels ul li .name {
+ font-size: 24px;
+ line-height: 30px;
+ margin: 0 10px;
+ align-self: baseline;
+}
+.PieBox .PieLabels ul li .percent {
+ font-size: 16px;
+ line-height: 30px;
+ align-self: baseline;
+}
+
+.PieBox .PieLabels ul li .data {
+ display: flex;
+}
+.PieBox .PieLabels ul li .value {
+ font-size: 20px;
+ line-height: 24px;
+ margin-left: 40px;
+ align-self: baseline;
+}
+.PieBox .PieLabels ul li .value .rubs {
+ font-size: 16px;
+}
+.PieBox .PieLabels ul li .delta {
+ font-size: 16px;
+ line-height: 24px;
+ margin-left: 10px;
+ align-self: baseline;
+}
+.PieBox .PieLabels ul li .delta .good {
+ color: #090;
+}
+.PieBox .PieLabels ul li .delta .good:before {
+ content: "+";
+}
+.PieBox .PieLabels ul li .delta .bad {
+ color: #D00;
+}
+.PieBox .PieLabels ul li .delta .bad:before {
+ content: "-";
 }
 
 /*

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import Menu from "./Menu";
 
 class Home extends React.Component {
  render() {
@@ -8,12 +8,7 @@ class Home extends React.Component {
     <header>
      Петровайзер 2017
     </header>
-    <div>
-     <ul>
-      <li><Link to={"/staff"}>Численность</Link></li>
-      <li><Link to={"/proceeds"}>Выручка</Link></li>
-     </ul>
-    </div>
+    <Menu/>
    </div>
   )
  }

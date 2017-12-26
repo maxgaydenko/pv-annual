@@ -16,12 +16,12 @@ class Menu extends React.Component {
 
  render() {
   const items = [
-   {key:"home", name:"На главную", url:"/"},
+   // {key:"home", name:"На главную", url:"/"},
    {key:"staff", name:"Численность", url:"/staff"},
-   {key:"proceeds", name:"Выручка", url:"/proceeds"},
-   {key:"2", name:"- по подразделениям", url:"/"},
-   {key:"3", name:"- по контрагентам", url:"/"},
-   {key:"4", name:"- на сотрудника", url:"/"},
+   {key:"proceeds", name:"Выручка по подразделениям", url:"/proceeds"},
+   {key:"contractor-bars", name:"Выручка по контрагентам", url:"/contractor-bars"},
+   {key:"contractor-pie", name:"Контрагенты за год", url:"/contractor-pie"},
+   {key:"proceeds-staff", name:"Выручка на сотрудника", url:"/proceeds-staff"},
   ]
 
   return (

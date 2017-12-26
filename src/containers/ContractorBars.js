@@ -2,9 +2,9 @@ import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
 
-class Proceeds extends React.Component {
+class ContractorBars extends React.Component {
  componentWillMount() {
-  const dataProvider = window._pvad.proceeds.reduce((p,c)=>{
+  const dataProvider = window._pvad.contractorData.reduce((p,c)=>{
    let item = {year:c.year, total:0};
    Object.keys(c.data).forEach(key => {
     item[key] = c.data[key];
@@ -13,21 +13,21 @@ class Proceeds extends React.Component {
    p.push(item);
    return p;
   }, []);
-  const departments = window._pvad.proceedsDepartments;
-  this.setState({dataProvider, departments});
-  window.document.title = "Выручка по подразделениям";
+  const contractors = window._pvad.contractors;
+  this.setState({dataProvider, contractors});
+  window.document.title = "Выручка по контрагентам";
  }
 
  render() {
-  let graphs = Object.keys(this.state.departments).map(depKey => ({
-   title: this.state.departments[depKey],
+  let graphs = Object.keys(this.state.contractors).map(depKey => ({
+   title: this.state.contractors[depKey].name,
    balloonText: "[[title]]<br/><b>[[value]] тыс.руб.</b>",
    valueField: depKey,
    fillAlphas: .8,
    type: "column",
   }));
   graphs.push({
-   title: "Выручка по подразделениям",
+   title: "Выручка по контрагентам",
    valueField: "total",
    labelText: "[[total]]",
    bullet: "none",
@@ -69,8 +69,8 @@ class Proceeds extends React.Component {
   return (
    <div className="App-body">
     <header>
-     <h1>Выручка по подразделениям</h1>
-     <Menu selected="proceeds" />
+     <h1>Выручка по контрагентам</h1>
+     <Menu selected="contractor-bars" />
     </header>
     <div className="Chart">
      <AmCharts.React style={{width: "100%", height: "100%"}} options={config}/>
@@ -80,4 +80,4 @@ class Proceeds extends React.Component {
  }
 }
 
-export default Proceeds;
+export default ContractorBars;
