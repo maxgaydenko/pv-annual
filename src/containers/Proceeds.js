@@ -39,7 +39,8 @@ class Proceeds extends React.Component {
    dashLength: 8,
    lineColor: "#D00",
    // bulletColor: "#DD0000",
-   color: "#666"
+   color: "#666",
+   visibleInLegend:false,
   });
 
   const config = {
@@ -48,7 +49,7 @@ class Proceeds extends React.Component {
    fontSize: 24,
    thousandsSeparator: " ",
    legend: {
-    fontSize: 20,
+    fontSize: 24,
     position: "bottom",
    },
    graphs: graphs,

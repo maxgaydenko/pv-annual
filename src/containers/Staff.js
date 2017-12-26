@@ -1,6 +1,7 @@
 import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
+import {numberWithSeparator} from "../utils";
 
 class Staff extends React.Component {
  componentWillMount() {
@@ -15,7 +16,7 @@ class Staff extends React.Component {
   }, []);
   const departments = window._pvad.staffDepartments;
   this.setState({dataProvider, departments});
-  window.document.title = "Численность";
+  window.document.title = "Сотрудники";
  }
 
  render() {
@@ -28,7 +29,7 @@ class Staff extends React.Component {
    type: "column",
   }));
   graphs.push({
-   title: "Численность",
+   title: "Сотрудники",
    valueField: "total",
    labelText: "[[total]]",
    balloonText: "",
@@ -38,7 +39,8 @@ class Staff extends React.Component {
    lineAlpha: .1,
    dashLength: 8,
    lineColor: "#D00",
-   color: "#666"
+   color: "#666",
+   visibleInLegend: false
   });
 
   const config = {
@@ -46,8 +48,9 @@ class Staff extends React.Component {
    theme: "light",
    fontSize: 24,
    legend: {
-    fontSize: 20,
+    fontSize: 24,
     position: "bottom",
+    equalWidths: false,
    },
    graphs: graphs,
    valueAxes: [{
@@ -69,11 +72,37 @@ class Staff extends React.Component {
   return (
    <div className="App-body">
     <header>
-     <h1>Численность</h1>
+     <h1>Сотрудники</h1>
      <Menu selected="staff" />
     </header>
-    <div className="Chart">
-     <AmCharts.React style={{width: "100%", height: "100%"}} options={config}/>
+    <div className="Chart Box StaffBox">
+     <div className="BoxChart">
+      <AmCharts.React style={{width: "100%", height: "100%"}} options={config}/>
+     </div>
+     <div className="BoxLabels">
+      <ul>
+       <li>
+        <div className="title"><div className="name">Принято</div></div>
+        <div className="data"><div className="value">103 <span className="measure">человека</span></div></div>
+       </li>
+       <li>
+        <div className="title"><div className="name">Уволено</div></div>
+        <div className="data"><div className="value">97 <span className="measure">человек</span></div></div>
+       </li>
+       <li>
+        <div className="title"><div className="name">Мужчины</div></div>
+        <div className="data"><div className="value">304 <span className="measure">человека</span></div></div>
+       </li>
+       <li>
+        <div className="title"><div className="name">Женщины</div></div>
+        <div className="data"><div className="value">58 <span className="measure">человек</span></div></div>
+       </li>
+       <li>
+        <div className="title"><div className="name">Родилось</div></div>
+        <div className="data"><div className="value">18 <span className="measure">детей</span></div></div>
+       </li>
+      </ul>
+     </div>
     </div>
    </div>
   )

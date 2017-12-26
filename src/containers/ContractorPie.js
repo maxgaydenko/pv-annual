@@ -3,14 +3,30 @@ import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
 import {numberWithSeparator} from "../utils";
 
+
+
 class ContractorPie extends React.Component {
  componentWillMount() {
   const yearData = window._pvad.contractorData.filter(f => f.year===2017)[0];
   const yearDataPrev = window._pvad.contractorData.filter(f => f.year===2016)[0];
 
-  const dataProviderCurrent = yearData? Object.keys(yearData.data).map(c=>{
-   const contractor = window._pvad.contractors[c];
-   return contractor? {key:c, name:contractor.name, color:contractor.color, value:yearData.data[c]}: null;
+  const dataProviderCurrent = yearData? Object.keys(yearData.data).map(key=>{
+   const contractor = window._pvad.contractors[key];
+   if(contractor) {
+    const isComplex = (typeof yearData.data[key] === "object");
+    return {
+     key: key,
+     name: contractor.name,
+     color: contractor.color,
+     value: (isComplex? Object.keys(yearData.data[key]).reduce((p,c)=>{
+      return p + yearData.data[key][c];
+     }, 0): yearData.data[key]),
+     details: (isComplex? Object.keys(yearData.data[key]).map(c => ({label:window._pvad.proceedsDepartments[c].name, value:yearData.data[key][c]})): null),
+     expanded: (isComplex? false: null)
+    }
+   }
+   return null;
+   // return contractor? {key:c, name:contractor.name, color:contractor.color, value:yearData.data[c]}: null;
   }).filter(f => f !== null): [];
   const total = dataProviderCurrent.reduce((p,c) => (p+c.value), 0);
   const dataProvider = dataProviderCurrent.map(dpc => {
@@ -24,11 +40,40 @@ class ContractorPie extends React.Component {
   window.document.title = "Выручка по контрагентам за 2017 год";
  }
 
+ dataProvider = () => {
+  return this.state.dataProvider.reduce((p,c) => {
+   if(c.expanded) {
+    c.details.map(dt => {
+     const percent = dt.label;
+     const value = dt.value;
+     const delta = null;
+     p.push({...c, percent, value, delta})
+    })
+   }
+   else {
+    p.push({...c});
+   }
+   return p;
+  }, []);
+ }
+
+ toggleExpanded = (key) => {
+  const dataProvider = this.state.dataProvider.map(d => {
+   if(d.key === key && d.expanded !== null) {
+    const expanded = !d.expanded;
+    return {...d, expanded};
+   }
+   return d;
+  });
+  this.setState({dataProvider});
+ }
+
  render() {
   const config = {
    type: "pie",
    theme: "light",
    fontSize: 20,
+   startAngle: 333,
    marginBottom: 0,
    marginTop: 0,
    thousandsSeparator: " ",
@@ -36,10 +81,8 @@ class ContractorPie extends React.Component {
    titleField: "name",
    valueField: "value",
    colorField: "color",
+   pulledField: "expanded",
    labelsEnabled: false,
-   // labelText: "[[label]]",
-   // color: "#FFF",
-   // labelRadius: "-60%",
    pullOutRadius: "10%",
    innerRadius: "50%",
    balloon:{
@@ -48,9 +91,28 @@ class ContractorPie extends React.Component {
    balloonFunction:(a) => {
     const row = a.dataContext;
     const deltaSpan = (row.delta != null)? ("<span style='font-size:80%; color:"+((row.delta>0)?"#090":"#D00")+"'>"+((row.delta>0)?"+":"")+numberWithSeparator(row.delta)+" тыс.руб</span>"): ""
-    return "<b>"+row.name+"</b><br/>" + row.percent.toFixed(2) + "%<br/>" + numberWithSeparator(row.value) + " тыс.руб<br/>"+deltaSpan;
+    return "<b>"+row.name+"</b><br/>" + (parseFloat(row.percent)? (row.percent.toFixed(2)+"%"): row.percent) + "<br/>" + numberWithSeparator(row.value) + " тыс.руб<br/>"+deltaSpan;
    },
-   dataProvider: this.state.dataProvider
+   listeners: [
+    {
+     event:"clickSlice",
+     method:(e)=>{
+      const chart = e.chart;
+      const ctx = e.dataItem.dataContext;
+      if(ctx.details !== null) {
+       this.toggleExpanded(ctx.key);
+       setTimeout(()=>{
+        chart.dataProvider = this.dataProvider();
+        chart.validateData();
+       }, 20)
+      }
+      else {
+       chart.validateData();
+      }
+     }
+    },
+   ],
+   dataProvider: this.dataProvider()
   };
 
   return (
@@ -59,11 +121,11 @@ class ContractorPie extends React.Component {
      <h1>Контрагенты за 2017 год</h1>
      <Menu selected="contractor-pie" />
     </header>
-    <div className="Chart PieBox">
-     <div className="Pie">
+    <div className="Chart Box PieBox">
+     <div className="BoxChart">
       <AmCharts.React style={{width: "100%", height: "100%"}} options={config}/>
      </div>
-     <div className="PieLabels" id="contractor-legend-div">
+     <div className="BoxLabels" id="contractor-legend-div">
       <ul>
        {this.state.dataProvider.map(d => (
         <li key={d.key}>
@@ -71,9 +133,20 @@ class ContractorPie extends React.Component {
           <i style={{background:d.color}}></i>
           <div className="name">{d.name}</div>
           <div className="percent">{d.percent.toFixed(2)}%</div>
+          {(d.details)? <button className={"toggleButton "+(d.expanded?"expanded":"collapsed")} onClick={()=>this.toggleExpanded(d.key)}></button>: null}
          </div>
+         {(d.details && d.expanded)? (
+          <div className="details">
+           {d.details.map(ds => (
+            <div key={ds.label} className="detail-row">
+             <div className="subvalue">{numberWithSeparator(ds.value)} <span className="measure">тыс.руб</span></div>
+             <div className="label">{ds.label}</div>
+            </div>
+           ))}
+          </div>
+         ): null}
          <div className="data">
-          <div className="value">{numberWithSeparator(d.value)} <span className="rubs">тыс.руб</span></div>
+          <div className="value">{numberWithSeparator(d.value)} <span className="measure">тыс.руб</span></div>
           <div className="delta">{(d.delta)?(
            <span className={(d.delta>0)?"good":"bad"}>{numberWithSeparator(Math.abs(d.delta))} тыс.руб</span>
           ):""}</div>

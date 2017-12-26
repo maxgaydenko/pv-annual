@@ -38,33 +38,31 @@ class ProceedsStaff extends React.Component {
    fontSize: 32,
    lineColor: "#d1cf00",
    lineThickness: 4,
-   // bulletColor: "#DD0000",
-   // color: "#666"
   });
-  graphs.push({
-   title: "Выручка",
-   valueAxis: "totalAxis",
-   valueField: "total",
-   // labelText: "[[total]]",
-   balloonText: "[[value]] тыс.руб.",
-   bullet: "circle",
-   bulletSize: 12,
-   fontSize: 18,
-   lineColor: "#607985",
-   lineThickness: 4,
-   // bulletColor: "#DD0000",
-   color: "#666"
-  });
+  if(false) {
+   graphs.push({
+    title: "Выручка",
+    valueAxis: "totalAxis",
+    valueField: "total",
+    balloonText: "[[value]] тыс.руб.",
+    bullet: "circle",
+    bulletSize: 12,
+    fontSize: 18,
+    lineColor: "#607985",
+    lineThickness: 4,
+    color: "#666"
+   });
+  }
 
   const config = {
    type: "serial",
    theme: "light",
    fontSize: 28,
    thousandsSeparator: " ",
-   legend: {
-    fontSize: 24,
-    position: "bottom",
-   },
+   // legend: {
+   //  fontSize: 24,
+   //  position: "bottom",
+   // },
    graphs: graphs,
    valueAxes: [{
     id: "totalAxis",
@@ -82,10 +80,10 @@ class ProceedsStaff extends React.Component {
     axisAlpha: 0,
     tickLength: 0
    },
-   chartCursor: {
-    cursorAlpha: .9,
-    cursorColor: "#D00",
-   },
+   // chartCursor: {
+   //  cursorAlpha: .9,
+   //  cursorColor: "#D00",
+   // },
    dataProvider: this.state.dataProvider
   }
 
