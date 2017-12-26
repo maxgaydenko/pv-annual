@@ -20,7 +20,10 @@ class Staff extends React.Component {
 
  render() {
   let graphs = Object.keys(this.state.departments).map(depKey => ({
-   title: this.state.departments[depKey],
+   title: this.state.departments[depKey].name,
+   lineColor: this.state.departments[depKey].color,
+   // legendColor: this.state.departments[depKey].color,
+   // fillColors: this.state.departments[depKey].color,
    balloonText: "<b>[[title]]</b><br>[[category]]: <b>[[value]]</b>",
    valueField: depKey,
    fillAlphas: .8,
@@ -39,6 +42,7 @@ class Staff extends React.Component {
    // bulletColor: "#DD0000",
    color: "#666"
   });
+  console.log("Graphs", graphs);
 
   const config = {
    type: "serial",
@@ -58,6 +62,10 @@ class Staff extends React.Component {
     gridPosition: "start",
     axisAlpha: 0,
     tickLength: 0
+   },
+   chartCursor: {
+    cursorAlpha: .9,
+    cursorColor: "#D00",
    },
    dataProvider: this.state.dataProvider
   }

@@ -20,7 +20,8 @@ class Proceeds extends React.Component {
 
  render() {
   let graphs = Object.keys(this.state.departments).map(depKey => ({
-   title: this.state.departments[depKey],
+   title: this.state.departments[depKey].name,
+   lineColor: this.state.departments[depKey].color,
    balloonText: "[[title]]<br/><b>[[value]] тыс.руб.</b>",
    valueField: depKey,
    fillAlphas: .8,

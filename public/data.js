@@ -1,14 +1,13 @@
 window._pvad = {
 
-
  // численность (подразделения)
  staffDepartments: {
-  aup: "АУП",
-  prj: "Проектирование",
-  it: "Информатизация",
-  usu: "Управление Сервисных Услуг",
-  sv: "Супервайзинг",
-  gti: "ГТИ"
+  aup: {color:"#F08475", name:"АУП"},
+  prj: {color:"#E00400", name:"Проектирование"},
+  it:  {color:"#03DA03", name:"Информатизация"},
+  usu: {color:"#A03485", name:"Управление Сервисных Услуг"},
+  sv:  {color:"#937838", name:"Супервайзинг"},
+  gti: {color:"#BE30FF", name:"ГТИ"},
  },
  staff: [
   {year:2005, data:{aup:2,  sv:7}},
@@ -27,11 +26,11 @@ window._pvad = {
 
  // выручка (подразделения)
  proceedsDepartments: {
-  sv: "Супервайзинг",
-  it: "ИТ",
-  prj: "Проектирование",
-  gti: "ГТИ",
-  lc: "УЦ",
+  sv:  {color:"#458844", name:"Супервайзинг"},
+  it:  {color:"#923842", name:"ИТ"},
+  prj: {color:"#938431", name:"Проектирование"},
+  gti: {color:"#FD0374", name:"ГТИ"},
+  lc:  {color:"#093EBA", name:"УЦ"},
  },
  proceeds: [
   {year:2005, data:{sv:3617}},
@@ -50,21 +49,22 @@ window._pvad = {
 
  // выручка (контрагенты)
  contractors: {
-  rosneft:  {name:"Роснефть"},
-  lukoil:   {name:"Лукойл"},
-  surgut:   {name:"Сургутнефтегаз"},
-  gazprom:  {name:"Газпром"},
-  gpn:      {name:"ГПН"},
-  tnk:      {name:"ТНК"},
-  bashneft: {name:"Башнефть"},
-  belarus:  {name:"Беларусь"},
-  russneft: {name:"Русснефть"},
-  tatneft:  {name:"Татнефть"},
-  zn:       {name:"Зарубежнефть"},
-  bke:      {name:"БКЕ"},
-  vostok:   {name:"Восток НАО"},
-  other:    {name:"Прочее"},
+  rosneft:  {color:"#DD0000", name:"Роснефть"},
+  lukoil:   {color:"#480000", name:"Лукойл"},
+  surgut:   {color:"#847583", name:"Сургутнефтегаз"},
+  gazprom:  {color:"#294785", name:"Газпром"},
+  gpn:      {color:"#94F034", name:"ГПН"},
+  tnk:      {color:"#482FAD", name:"ТНК"},
+  bashneft: {color:"#D03842", name:"Башнефть"},
+  belarus:  {color:"#039483", name:"Беларусь"},
+  russneft: {color:"#037303", name:"Русснефть"},
+  tatneft:  {color:"#019274", name:"Татнефть"},
+  zn:       {color:"#FA04D0", name:"Зарубежнефть"},
+  bke:      {color:"#945739", name:"БКЕ"},
+  vostok:   {color:"#DD0376", name:"Восток НАО"},
+  other:    {color:"#A0375D", name:"Прочее"},
  },
+
  contractorData: [
   {year:2005, data:{other:3617}},
   {year:2006, data:{rosneft:30846,  lukoil:16000, surgut:1400,  other:2600}},

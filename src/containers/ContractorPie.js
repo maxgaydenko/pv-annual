@@ -10,7 +10,7 @@ class ContractorPie extends React.Component {
 
   const dataProviderCurrent = yearData? Object.keys(yearData.data).map(c=>{
    const contractor = window._pvad.contractors[c];
-   return contractor? {key:c, name:contractor.name, value:yearData.data[c]}: null;
+   return contractor? {key:c, name:contractor.name, color:contractor.color, value:yearData.data[c]}: null;
   }).filter(f => f !== null): [];
   const total = dataProviderCurrent.reduce((p,c) => (p+c.value), 0);
   const dataProvider = dataProviderCurrent.map(dpc => {
@@ -35,6 +35,7 @@ class ContractorPie extends React.Component {
    startDuration: 0,
    titleField: "name",
    valueField: "value",
+   colorField: "color",
    labelsEnabled: false,
    // labelText: "[[label]]",
    // color: "#FFF",
@@ -67,7 +68,7 @@ class ContractorPie extends React.Component {
        {this.state.dataProvider.map(d => (
         <li key={d.key}>
          <div className="title">
-          <i style={{background:"#777"}}></i>
+          <i style={{background:d.color}}></i>
           <div className="name">{d.name}</div>
           <div className="percent">{d.percent.toFixed(2)}%</div>
          </div>
