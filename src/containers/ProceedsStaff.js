@@ -35,7 +35,7 @@ class ProceedsStaff extends React.Component {
    balloonText: "[[value]] тыс.руб.",
    bullet: "circle",
    bulletSize: 12,
-   fontSize: 18,
+   fontSize: 32,
    lineColor: "#d1cf00",
    lineThickness: 4,
    // bulletColor: "#DD0000",
@@ -59,10 +59,10 @@ class ProceedsStaff extends React.Component {
   const config = {
    type: "serial",
    theme: "light",
-   fontSize: 14,
+   fontSize: 28,
    thousandsSeparator: " ",
    legend: {
-    fontSize: 13,
+    fontSize: 24,
     position: "bottom",
    },
    graphs: graphs,

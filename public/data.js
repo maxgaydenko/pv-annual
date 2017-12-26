@@ -12,16 +12,17 @@ window._pvad = {
  staff: [
   {year:2005, data:{aup:2,  sv:7}},
   {year:2006, data:{aup:6,  sv:12,  it:25}},
-  {year:2007, data:{aup:14, sv:36,  it:34, prj:3}},
-  {year:2008, data:{aup:24, sv:38,  it:39, prj:3, gti:30}},
-  {year:2009, data:{aup:23, sv:43,  it:41, prj:3, gti:30}},
-  {year:2010, data:{aup:16, sv:60,  it:43, prj:4, gti:25}},
-  {year:2011, data:{aup:20, sv:60,  it:50, prj:5, gti:24}},
-  {year:2012, data:{aup:28, sv:81,  it:51, prj:5, gti:51, usu:12}},
-  {year:2013, data:{aup:30, sv:75,  it:63, prj:2, gti:70, usu:7}},
-  {year:2014, data:{aup:31, sv:76,  it:64, prj:2, gti:74, usu:9}},
-  {year:2015, data:{aup:40, sv:95,  it:85, prj:2, gti:67, usu:7}},
-  {year:2016, data:{aup:42, sv:122, it:94, prj:2, gti:89, usu:8}},
+  {year:2007, data:{aup:14, sv:36,  it:34,  prj:3}},
+  {year:2008, data:{aup:24, sv:38,  it:39,  prj:3, gti:30}},
+  {year:2009, data:{aup:23, sv:43,  it:41,  prj:3, gti:30}},
+  {year:2010, data:{aup:16, sv:60,  it:43,  prj:4, gti:25}},
+  {year:2011, data:{aup:20, sv:60,  it:50,  prj:5, gti:24}},
+  {year:2012, data:{aup:28, sv:81,  it:51,  prj:5, gti:51, usu:12}},
+  {year:2013, data:{aup:30, sv:75,  it:63,  prj:2, gti:70, usu:7}},
+  {year:2014, data:{aup:31, sv:76,  it:64,  prj:2, gti:74, usu:9}},
+  {year:2015, data:{aup:40, sv:95,  it:85,  prj:2, gti:67, usu:7}},
+  {year:2016, data:{aup:42, sv:122, it:94,  prj:2, gti:89, usu:8}},
+  {year:2017, data:{aup:43, sv:118, it:101, prj:2, gti:88, usu:10}},
  ],
 
  // выручка (подразделения)
@@ -45,6 +46,7 @@ window._pvad = {
   {year:2014, data:{sv:162478, it:193159, prj:1800,  gti:151141}},
   {year:2015, data:{sv:150658, it:336223, gti:89177}},
   {year:2016, data:{sv:267863, it:268822, gti:135188}},
+  {year:2017, data:{sv:292354, it:348849, gti:132114}},
  ],
 
  // выручка (контрагенты)
@@ -62,6 +64,7 @@ window._pvad = {
   zn:       {color:"#60943f", name:"Зарубежнефть"},//
   bke:      {color:"#aa9b87", name:"БКЕ"},//
   vostok:   {color:"#1c8f6d", name:"Восток НАО"},//
+  nnk:      {color:"#2c41c8", name:"ННК"},//
   other:    {color:"#a1bf65", name:"Прочее"},//
  },
 
@@ -78,5 +81,6 @@ window._pvad = {
   {year:2014, data:{rosneft:226008, lukoil:36176, gazprom:1663,  gpn:95551,  bashneft:91763, other:57417}},
   {year:2015, data:{rosneft:180781, lukoil:19975, gazprom:1599,  gpn:192847, bashneft:43943, russneft:34019, tatneft:22332, zn:34878, other:45684}},
   {year:2016, data:{rosneft:207094, lukoil:15868, gazprom:22705, gpn:151416, bashneft:56183, russneft:62056, tatneft:99527, zn:25476, bke:11686, vostok:13872, other:5990}},
+  {year:2017, data:{rosneft:261684, lukoil:12447, gazprom:16783, gpn:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:66311, other:1214}},
  ],
 }

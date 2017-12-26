@@ -33,9 +33,9 @@ class Staff extends React.Component {
    labelText: "[[total]]",
    balloonText: "",
    bullet: "none",
-   fontSize: 18,
+   fontSize: 28,
    lineThickness: 2,
-   lineAlpha: .2,
+   lineAlpha: .1,
    dashLength: 8,
    lineColor: "#D00",
    color: "#666"
@@ -44,10 +44,9 @@ class Staff extends React.Component {
   const config = {
    type: "serial",
    theme: "light",
-   language: "ru",
-   fontSize: 14,
+   fontSize: 24,
    legend: {
-    fontSize: 13,
+    fontSize: 20,
     position: "bottom",
    },
    graphs: graphs,
@@ -61,7 +60,7 @@ class Staff extends React.Component {
     tickLength: 0
    },
    chartCursor: {
-    cursorAlpha: .9,
+    cursorAlpha: .8,
     cursorColor: "#D00",
    },
    dataProvider: this.state.dataProvider
