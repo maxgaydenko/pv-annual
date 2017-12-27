@@ -1,6 +1,11 @@
 import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
+import svgChild from "../svg/child.svg";
+import svgIn from "../svg/in.svg";
+import svgMan from "../svg/man.svg";
+import svgOut from "../svg/out.svg";
+import svgWoman from "../svg/woman.svg";
 import {numberWithSeparator} from "../utils";
 
 class Staff extends React.Component {
@@ -23,7 +28,25 @@ class Staff extends React.Component {
   let graphs = Object.keys(this.state.departments).map(depKey => ({
    title: this.state.departments[depKey].name,
    lineColor: this.state.departments[depKey].color,
-   balloonText: "<b>[[title]]</b><br>[[category]]: <b>[[value]]</b>",
+   balloonFunction: function(a, b) {
+    const category = a.category;
+    const dataContext = a.dataContext;
+    const valueField = b.valueField;
+    const title = b.title;
+    const data = b.data;
+
+    const prevYear = category*1 - 1;
+    const prevData = data.filter(f => f.dataContext.year===prevYear)[0];
+
+    if(title && valueField && dataContext[valueField]) {
+     const delta = (prevData && prevData.dataContext && prevData.dataContext[valueField])? (dataContext[valueField] - prevData.dataContext[valueField]): null;
+     const deltaSpan = (delta)? (" <span style='font-size:80%; color:"+((delta>0)?"#090":"#D00")+"'>"+((delta>0)?"+":"-")+Math.abs(delta)+"</span>"): "";
+     return "<b>" + title + "</b><br/>" + numberWithSeparator(dataContext[valueField]) + deltaSpan;
+    }
+
+    return null;
+   },
+   // balloonText: "<b>[[title]]</b><br>[[value]]",
    valueField: depKey,
    fillAlphas: .8,
    type: "column",
@@ -46,6 +69,7 @@ class Staff extends React.Component {
   const config = {
    type: "serial",
    theme: "light",
+   zoomOutText: "Назад",
    fontSize: 24,
    legend: {
     fontSize: 24,
@@ -82,22 +106,27 @@ class Staff extends React.Component {
      <div className="BoxLabels">
       <ul>
        <li>
+        <div className="icon"><img src={svgIn} alt={"Принято"} /></div>
         <div className="title"><div className="name">Принято</div></div>
         <div className="data"><div className="value">103 <span className="measure">человека</span></div></div>
        </li>
        <li>
+        <div className="icon"><img src={svgOut} alt={"Уволено"} /></div>
         <div className="title"><div className="name">Уволено</div></div>
-        <div className="data"><div className="value">97 <span className="measure">человек</span></div></div>
+        <div className="data"><div className="value">98 <span className="measure">человек</span></div></div>
        </li>
        <li>
+        <div className="icon"><img src={svgMan} alt={"Мужчины"} /></div>
         <div className="title"><div className="name">Мужчины</div></div>
         <div className="data"><div className="value">304 <span className="measure">человека</span></div></div>
        </li>
        <li>
+        <div className="icon"><img src={svgWoman} alt={"Женщины"} /></div>
         <div className="title"><div className="name">Женщины</div></div>
         <div className="data"><div className="value">58 <span className="measure">человек</span></div></div>
        </li>
        <li>
+        <div className="icon"><img src={svgChild} alt={"Родилось"} /></div>
         <div className="title"><div className="name">Родилось</div></div>
         <div className="data"><div className="value">18 <span className="measure">детей</span></div></div>
        </li>

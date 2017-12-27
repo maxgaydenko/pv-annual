@@ -361,6 +361,12 @@ html, body, #root, .App {
  width: 240px;
  margin-left: 20px;
 }
+.StaffBox .BoxLabels ul li .icon {
+}
+.StaffBox .BoxLabels ul li .icon img {
+ width: 64px;
+ height: 64px;
+}
 .StaffBox .BoxLabels ul li .name {
  margin: 0;
 }
@@ -370,7 +376,7 @@ html, body, #root, .App {
  line-height: 42px;
 }
 .StaffBox .BoxLabels ul li .value .measure {
- font-size: 24px;
+ font-size: 20px;
 }
 
 /*

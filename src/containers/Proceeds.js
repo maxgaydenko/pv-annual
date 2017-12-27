@@ -1,6 +1,7 @@
 import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
+import {numberWithSeparator} from "../utils";
 
 class Proceeds extends React.Component {
  componentWillMount() {
@@ -22,7 +23,25 @@ class Proceeds extends React.Component {
   let graphs = Object.keys(this.state.departments).map(depKey => ({
    title: this.state.departments[depKey].name,
    lineColor: this.state.departments[depKey].color,
-   balloonText: "[[title]]<br/><b>[[value]] тыс.руб.</b>",
+   balloonFunction: function(a, b) {
+    const category = a.category;
+    const dataContext = a.dataContext;
+    const valueField = b.valueField;
+    const title = b.title;
+    const data = b.data;
+
+    const prevYear = category*1 - 1;
+    const prevData = data.filter(f => f.dataContext.year===prevYear)[0];
+
+    if(title && valueField && dataContext[valueField]) {
+     const delta = (prevData && prevData.dataContext && prevData.dataContext[valueField])? (dataContext[valueField] - prevData.dataContext[valueField]): null;
+     const deltaSpan = (delta)? ("<br/><span style='font-size:80%; color:"+((delta>0)?"#090":"#D00")+"'>"+((delta>0)?"+":"-")+numberWithSeparator(Math.abs(delta))+" тыс.руб.</span>"): "";
+     return "<b>" + title + "</b><br/>" + numberWithSeparator(dataContext[valueField]) + " <span style='font-size:80%'>тыс.руб.</span>" + deltaSpan;
+    }
+
+    return null;
+   },
+   // balloonText: "[[title]]<br/><b>[[value]] тыс.руб.</b>",
    valueField: depKey,
    fillAlphas: .8,
    type: "column",
@@ -46,11 +65,13 @@ class Proceeds extends React.Component {
   const config = {
    type: "serial",
    theme: "light",
+   zoomOutText: "Назад",
    fontSize: 24,
    thousandsSeparator: " ",
    legend: {
     fontSize: 24,
     position: "bottom",
+    equalWidths: false,
    },
    graphs: graphs,
    valueAxes: [{

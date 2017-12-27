@@ -40,10 +40,10 @@ class ContractorPie extends React.Component {
   window.document.title = "Выручка по контрагентам за 2017 год";
  }
 
- dataProvider = () => {
+ dataProviderFunction = () => {
   return this.state.dataProvider.reduce((p,c) => {
    if(c.expanded) {
-    c.details.map(dt => {
+    c.details.forEach(dt => {
      const percent = dt.label;
      const value = dt.value;
      const delta = null;
@@ -63,7 +63,7 @@ class ContractorPie extends React.Component {
     const expanded = !d.expanded;
     return {...d, expanded};
    }
-   return d;
+   return {...d};
   });
   this.setState({dataProvider});
  }
@@ -98,21 +98,25 @@ class ContractorPie extends React.Component {
      event:"clickSlice",
      method:(e)=>{
       const chart = e.chart;
-      const ctx = e.dataItem.dataContext;
-      if(ctx.details !== null) {
-       this.toggleExpanded(ctx.key);
-       setTimeout(()=>{
-        chart.dataProvider = this.dataProvider();
-        chart.validateData();
-       }, 20)
-      }
-      else {
-       chart.validateData();
-      }
+      chart.validateData();
+      // const chart = e.chart;
+      // const ctx = e.dataItem.dataContext;
+      // console.log("CTX", ctx);
+      // this.toggleExpanded(ctx.key);
+      // chart.dataProvider = this.dataProviderFunction();
+      // chart.validateData();
+      // const exp = ctx.expanded;
+      // if(exp !== null)
+      //  this.toggleExpanded(ctx.key);
+      // setTimeout(()=>{
+      //  if(exp !== null)
+      //   chart.dataProvider = this.dataProviderFunction();
+      //  chart.validateData();
+      // }, 20)
      }
     },
    ],
-   dataProvider: this.dataProvider()
+   dataProvider: this.dataProviderFunction()
   };
 
   return (

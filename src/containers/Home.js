@@ -13,7 +13,7 @@ class Home extends React.Component {
    <div className="App-home">
     <h1>Ежегодный отчёт за 2017 год</h1>
     <div className="logo-box">
-     <Link to={"/staff"}><img src={logoBox} /></Link>
+     <Link to={"/staff"}><img src={logoBox} alt={"Petroviser"} /></Link>
     </div>
     <Menu/>
    </div>

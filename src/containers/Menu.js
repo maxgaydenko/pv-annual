@@ -27,7 +27,7 @@ class Menu extends React.Component {
 
   return (
    <div className={"Menu"+(this.state.active?" active":"")}>
-    <div className="logo"><Link to={"/"}><img src={logo} /></Link></div>
+    <div className="logo"><Link to={"/"}><img src={logo} alt={"Petroviser"} /></Link></div>
     <button onClick={this.onButtonClick}>
      <span></span>
      <span></span>
