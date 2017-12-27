@@ -55,10 +55,10 @@ class ProceedsStaff extends React.Component {
    lineColor: "#ca4440",//607985",
    lineThickness: 4,
   });
-  if(false) {
+  if(true) {
    graphs.push({
     title: "Выручка",
-    valueAxis: "totalAxis",
+    valueAxis: "totalAxis2",
     valueField: "total",
     balloonText: "[[value]] тыс.руб.",
     bullet: "circle",
@@ -89,6 +89,14 @@ class ProceedsStaff extends React.Component {
     axisAlpha: 0,
     gridAlpha: 0,
     maximum: 500,
+   }, {
+    id: "totalAxis2",
+    position: "right",
+    tickLength: 0,
+    labelsEnabled: false,
+    axisAlpha: 0,
+    gridAlpha: 0,
+    maximum: 1000000,
    }, {
     id: "ppAxis",
    }],
