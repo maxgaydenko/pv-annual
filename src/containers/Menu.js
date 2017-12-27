@@ -19,10 +19,10 @@ class Menu extends React.Component {
   const items = [
    // {key:"home", name:"На главную", url:"/"},
    {key:"staff", name:"Сотрудники", url:"/staff"},
+   {key:"proceeds-staff", name:"Выручка на сотрудника", url:"/proceeds-staff"},
    {key:"proceeds", name:"Выручка по подразделениям", url:"/proceeds"},
    // {key:"contractor-bars", name:"Выручка по контрагентам", url:"/contractor-bars"},
    {key:"contractor-pie", name:"Контрагенты за год", url:"/contractor-pie"},
-   {key:"proceeds-staff", name:"Выручка на сотрудника", url:"/proceeds-staff"},
   ]
 
   return (

@@ -16,27 +16,43 @@ class ProceedsStaff extends React.Component {
    Object.keys(c.data).forEach(key => {
     item.total += c.data[key];
    });
-   if(persons[c.year])
+   if(persons[c.year]) {
     item.pp = Math.round(item.total/persons[c.year]);
+    item.persons = persons[c.year];
+   }
    p.push(item);
    return p;
   }, []);
   this.setState({dataProvider});
+  console.table(dataProvider);
   window.document.title = "Выручка на сотрудника";
  }
 
  render() {
   let graphs = [];
   graphs.push({
+   title: "Сотрудники",
+   valueAxis: "totalAxis",
+   valueField: "persons",
+   balloonText: "[[value]] чел.",
+   bullet: "circle",
+   bulletSize: 12,
+   fontSize: 18,
+   lineColor: "#d1cf00",
+   lineThickness: 4,
+   color: "#666"
+  });
+  graphs.push({
    title: "Выручка на сотрудника",
    valueAxis: "ppAxis",
    valueField: "pp",
    labelText: "[[pp]]",
+   labelOffset: 20,
    balloonText: "[[value]] тыс.руб.",
    bullet: "circle",
    bulletSize: 12,
    fontSize: 32,
-   lineColor: "#d1cf00",
+   lineColor: "#ca4440",//607985",
    lineThickness: 4,
   });
   if(false) {
@@ -57,12 +73,13 @@ class ProceedsStaff extends React.Component {
   const config = {
    type: "serial",
    theme: "light",
+   zoomOutText: "Назад",
    fontSize: 28,
    thousandsSeparator: " ",
-   // legend: {
-   //  fontSize: 24,
-   //  position: "bottom",
-   // },
+   legend: {
+    fontSize: 24,
+    position: "bottom",
+   },
    graphs: graphs,
    valueAxes: [{
     id: "totalAxis",
@@ -71,6 +88,7 @@ class ProceedsStaff extends React.Component {
     labelsEnabled: false,
     axisAlpha: 0,
     gridAlpha: 0,
+    maximum: 500,
    }, {
     id: "ppAxis",
    }],
@@ -80,10 +98,10 @@ class ProceedsStaff extends React.Component {
     axisAlpha: 0,
     tickLength: 0
    },
-   // chartCursor: {
-   //  cursorAlpha: .9,
-   //  cursorColor: "#D00",
-   // },
+   chartCursor: {
+    cursorAlpha: .8,
+    cursorColor: "#D00",
+   },
    dataProvider: this.state.dataProvider
   }
 
