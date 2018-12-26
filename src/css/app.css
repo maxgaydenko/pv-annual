@@ -3,16 +3,20 @@
  padding: 0;
  font-family: sans-serif;
 }
-html, body, #root, .App {
+html, body, #root {
  height: 100%;
 }
 html {
- overflow-y: scroll;
+ /* overflow-y: scroll; */
 }
 
 .App, .App-body, .App-home {
  height: 100%;
  position: relative;
+}
+
+.App {
+ height: 800px;
 }
 
 
@@ -250,7 +254,7 @@ html {
  align-self: flex-start;
 }
 .Box .BoxLabels ul li .name {
- font-size: 24px;
+ font-size: 20px;
  line-height: 30px;
  margin: 0 10px;
  align-self: baseline;
@@ -369,14 +373,14 @@ html {
 .StaffBox .BoxLabels ul li .icon {
 }
 .StaffBox .BoxLabels ul li .icon img {
- width: 64px;
- height: 64px;
+ width: 48px;
+ height: 48px;
 }
 .StaffBox .BoxLabels ul li .name {
  margin: 0;
 }
 .StaffBox .BoxLabels ul li .value {
- font-size: 30px;
+ font-size: 24px;
  margin-left: 0;
  line-height: 42px;
 }
@@ -439,13 +443,13 @@ html {
 .Popup td {
  border-top: 1px #ccc solid;
  font-size: 24px;
- padding: 10px 0;
+ padding: 15px 5px 15px 15px;
  text-align: right;
- padding-left: 10px;
+ /* padding-left: 10px; */
 }
 .Popup td:nth-child(1) {
  text-align: left;
- padding-left: 0;
+ padding-left: 5px;
 }
 .Popup td span {
  font-size: 80%;

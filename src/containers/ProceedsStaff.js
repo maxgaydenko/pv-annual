@@ -1,6 +1,7 @@
 import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
+import { numberWithSeparator } from '../utils';
 
 class ProceedsStaff extends React.Component {
  componentWillMount() {
@@ -18,6 +19,7 @@ class ProceedsStaff extends React.Component {
    });
    if(persons[c.year]) {
     item.pp = Math.round(item.total/persons[c.year]);
+    item.ppLabel = numberWithSeparator(item.pp);
     item.persons = persons[c.year];
    }
    p.push(item);
@@ -29,7 +31,7 @@ class ProceedsStaff extends React.Component {
  }
 
  render() {
-  let graphs = [];
+  const graphs = [];
   graphs.push({
    title: "Сотрудники",
    valueAxis: "totalAxis",
@@ -40,18 +42,19 @@ class ProceedsStaff extends React.Component {
    fontSize: 18,
    lineColor: "#d1cf00",
    lineThickness: 4,
-   color: "#666"
+   color: "#666",
+   // type: "column"
   });
   graphs.push({
    title: "Выручка на сотрудника",
    valueAxis: "ppAxis",
    valueField: "pp",
-   labelText: "[[pp]]",
+   labelText: "[[ppLabel]]",
    labelOffset: 20,
    balloonText: "[[value]] тыс.руб.",
    bullet: "circle",
    bulletSize: 12,
-   fontSize: 32,
+   fontSize: 24,
    lineColor: "#ca4440",//607985",
    lineThickness: 4,
   });
@@ -66,7 +69,8 @@ class ProceedsStaff extends React.Component {
     fontSize: 18,
     lineColor: "#607985",
     lineThickness: 4,
-    color: "#666"
+    color: "#666",
+    // type: "column"
    });
   }
 
@@ -74,10 +78,10 @@ class ProceedsStaff extends React.Component {
    type: "serial",
    theme: "light",
    zoomOutText: "Назад",
-   fontSize: 28,
+   fontSize: 20,
    thousandsSeparator: " ",
    legend: {
-    fontSize: 24,
+    fontSize: 20,
     position: "bottom",
    },
    graphs: graphs,

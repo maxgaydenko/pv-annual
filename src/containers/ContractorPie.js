@@ -135,7 +135,7 @@ class ContractorPie extends React.Component {
         <li key={d.key}>
          <div className="title">
           <i style={{background:d.color}}></i>
-          <div className="name">{d.name}</div>
+          <div className="name" onClick={()=>this.toggleExpanded(d.key)}>{d.name}</div>
           <div className="percent">{d.percent.toFixed(2)}%</div>
           {(d.details)? <button className={"toggleButton "+(d.expanded?"expanded":"collapsed")} onClick={()=>this.toggleExpanded(d.key)}></button>: null}
          </div>
