@@ -10,14 +10,21 @@ html {
  /* overflow-y: scroll; */
 }
 
-.App, .App-body, .App-home {
+.App, .App-body111, .App-home {
  height: 100%;
  position: relative;
 }
 
-.App {
+.App-body {
  height: 800px;
+ width: 1280px;
+ margin: 0 auto;
+ position: relative;
 }
+
+/* .App {
+ height: 800px;
+} */
 
 
 .App-home {
@@ -98,7 +105,9 @@ html {
 .App-body .Menu {
  position: absolute;
  z-index: 101;
- left: 0;
+ width: 1280px;
+ margin-left: -640px;
+ left: 50%;
  right: 0;
  top: 0;
  text-align: right;
