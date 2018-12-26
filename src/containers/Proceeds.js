@@ -2,8 +2,11 @@ import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
 import {numberWithSeparator} from "../utils";
+import ProceedsPopup from './ProceedsPopup';
 
 class Proceeds extends React.Component {
+ // state = {year:2017}
+
  componentWillMount() {
   const dataProvider = window._pvad.proceeds.reduce((p,c)=>{
    let item = {year:c.year, total:0};
@@ -19,11 +22,16 @@ class Proceeds extends React.Component {
   window.document.title = "Выручка по подразделениям";
  }
 
+ closePopup = () => this.setState({year:null})
+
  render() {
-  let graphs = Object.keys(this.state.departments).map(depKey => ({
+  const year = this.state.year;
+  const graphs = Object.keys(this.state.departments).map(depKey => ({
    title: this.state.departments[depKey].name,
    lineColor: this.state.departments[depKey].color,
    balloonFunction: function(a, b) {
+    if(year)
+     return null;
     const category = a.category;
     const dataContext = a.dataContext;
     const valueField = b.valueField;
@@ -52,7 +60,7 @@ class Proceeds extends React.Component {
    labelText: "[[total]]",
    balloonText: "",
    bullet: "none",
-   fontSize: 28,
+   fontSize: 24,
    lineThickness: 2,
    lineAlpha: .1,
    dashLength: 8,
@@ -69,13 +77,14 @@ class Proceeds extends React.Component {
    fontSize: 24,
    thousandsSeparator: " ",
    legend: {
-    fontSize: 24,
+    fontSize: 20,
     position: "bottom",
     equalWidths: false,
    },
    graphs: graphs,
    valueAxes: [{
     stackType: "regular",
+    fontSize: 18,
    }],
    categoryField: "year",
    categoryAxis: {
@@ -86,7 +95,15 @@ class Proceeds extends React.Component {
    chartCursor: {
     cursorAlpha: .9,
     cursorColor: "#D00",
+    enabled: !Boolean(year),
    },
+   listeners: [{
+    event: "clickGraphItem",
+    method: e => {
+     const year = e.item.category
+     this.setState({year})
+    }
+   }],
    dataProvider: this.state.dataProvider
   }
 
@@ -98,6 +115,7 @@ class Proceeds extends React.Component {
     </header>
     <div className="Chart">
      <AmCharts.React style={{width: "100%", height: "100%"}} options={config}/>
+     <ProceedsPopup year={this.state.year} onClose={this.closePopup} />
     </div>
    </div>
   )

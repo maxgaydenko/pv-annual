@@ -6,6 +6,9 @@
 html, body, #root, .App {
  height: 100%;
 }
+html {
+ overflow-y: scroll;
+}
 
 .App, .App-body, .App-home {
  height: 100%;
@@ -57,7 +60,7 @@ html, body, #root, .App {
 .App-home .Menu li {
  display: inline-block;
  flex: 1;
- font-size: 28px;
+ font-size: 24px;
 
  text-align: center;
 }
@@ -171,8 +174,9 @@ html, body, #root, .App {
  position: absolute;
  right: 0;
  top: 50px;
+ padding: 14px 0;
  min-width: 250px;
- background: rgba(255,255,255,.9);
+ background: rgba(255,255,255,.95);
  box-shadow: -2px 2px 3px rgba(0,0,0,.6);
  visibility: hidden;
  opacity: 0;
@@ -218,6 +222,7 @@ html, body, #root, .App {
 .Box .BoxChart {
  height: 100%;
  flex: 1;
+ position: relative;
 }
 .Box .BoxLabels {
  background: #FFF;
@@ -377,6 +382,85 @@ html, body, #root, .App {
 }
 .StaffBox .BoxLabels ul li .value .measure {
  font-size: 20px;
+}
+
+.PopupBox {
+ position: fixed;
+ z-index: 1000;
+ left: 0;
+ top: 50px;
+ right: 0;
+ bottom: 0;
+ background: rgba(255,255,255,.85);
+}
+.PopupBox:hover {
+}
+.Popup {
+ background: #FFF;
+ width: 800px;
+ margin: 40px auto;
+ padding: 20px;
+ box-shadow: 0 0 20px rgba(0,0,0,.6);
+ position: relative;
+}
+.PopupClose {
+ position: absolute;
+ right: 20px;
+ top: 24px;
+ width: 24px;
+ height: 24px;
+ cursor: pointer;
+}
+.PopupClose img {
+ display: block;
+ width: 100%;
+ height: 100%;
+ opacity: .4;
+ transition: all .5s ease-in;
+}
+.PopupClose img:hover {
+ opacity: 1;
+}
+.Popup h3 {
+ font-size: 28px;
+ font-weight: normal;
+ text-align: center;
+ padding: 0 0 25px;
+}
+.Popup .pie {
+ width: 400px;
+ height: 400px;
+ background: pink;
+}
+.Popup table {
+ border-collapse: collapse;
+ width: 100%;
+}
+.Popup td {
+ border-top: 1px #ccc solid;
+ font-size: 24px;
+ padding: 10px 0;
+ text-align: right;
+ padding-left: 10px;
+}
+.Popup td:nth-child(1) {
+ text-align: left;
+ padding-left: 0;
+}
+.Popup td span {
+ font-size: 80%;
+}
+.Popup td span.up {
+ color: #090;
+}
+.Popup td span.up:before {
+ content: "+";
+}
+.Popup td span.down {
+ color: #D00;
+}
+.Popup td span.down:before {
+ content: "-";
 }
 
 /*

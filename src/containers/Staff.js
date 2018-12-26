@@ -7,6 +7,7 @@ import svgMan from "../svg/man.svg";
 import svgOut from "../svg/out.svg";
 import svgWoman from "../svg/woman.svg";
 import {numberWithSeparator} from "../utils";
+import StaffPopup from './StaffPopup';
 
 class Staff extends React.Component {
  componentWillMount() {
@@ -24,11 +25,16 @@ class Staff extends React.Component {
   window.document.title = "Сотрудники";
  }
 
+ closePopup = () => this.setState({year:null})
+
  render() {
-  let graphs = Object.keys(this.state.departments).map(depKey => ({
+  const year = this.state.year;
+  const graphs = Object.keys(this.state.departments).map(depKey => ({
    title: this.state.departments[depKey].name,
    lineColor: this.state.departments[depKey].color,
    balloonFunction: function(a, b) {
+    if(year)
+     return null;
     const category = a.category;
     const dataContext = a.dataContext;
     const valueField = b.valueField;
@@ -62,7 +68,7 @@ class Staff extends React.Component {
    lineAlpha: .1,
    dashLength: 8,
    lineColor: "#D00",
-   color: "#666",
+   color: "#333",
    visibleInLegend: false
   });
 
@@ -72,24 +78,36 @@ class Staff extends React.Component {
    zoomOutText: "Назад",
    fontSize: 24,
    legend: {
-    fontSize: 24,
+    fontSize: 20,
     position: "bottom",
     equalWidths: false,
    },
    graphs: graphs,
    valueAxes: [{
     stackType: "regular",
+    fontSize: 18
    }],
    categoryField: "year",
    categoryAxis: {
     gridPosition: "start",
     axisAlpha: 0,
-    tickLength: 0
+    tickLength: 0,
+    fontSize: 20,
    },
    chartCursor: {
     cursorAlpha: .8,
     cursorColor: "#D00",
+    enabled: !Boolean(year),
    },
+   listeners: [
+    {
+     event: "clickGraphItem",
+     method: e => {
+      const year = e.item.category
+      this.setState({year})
+     }
+    },
+   ],
    dataProvider: this.state.dataProvider
   }
 
@@ -132,6 +150,7 @@ class Staff extends React.Component {
        </li>
       </ul>
      </div>
+     <StaffPopup year={this.state.year} onClose={this.closePopup} />
     </div>
    </div>
   )
