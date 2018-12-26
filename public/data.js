@@ -27,7 +27,7 @@ window._pvad = {
   {year:2015, data:{aup:40, sv:95,  it:85,  prj:2, gti:67, usu:7}},
   {year:2016, data:{aup:42, sv:122, it:94,  prj:2, gti:89, usu:8}},
   {year:2017, data:{aup:43, sv:118, it:101, prj:2, gti:88, usu:10}},
-  {year:2018, data:{aup:43+r(10), sv:118+r(10), it:101+r(10), prj:2+r(10), gti:88+r(10), usu:10+r(10)}},
+  {year:2018, data:{aup:47, sv:94, it:104, prj:2, gti:70, usu:10}},
  ],
 
  // выручка (подразделения)
@@ -52,7 +52,7 @@ window._pvad = {
   {year:2015, data:{sv:150658, it:336223, gti:89177}},
   {year:2016, data:{sv:267863, it:268822, gti:135188}},
   {year:2017, data:{sv:292354, it:348849, gti:132114}},
-  {year:2018, data:{sv:292354+r(100000), it:348849+r(100000), gti:132114+r(50000)}},
+  {year:2018, data:{sv:337868, it:345748, gti:85999}},
  ],
 
  // выручка (контрагенты)
@@ -71,6 +71,9 @@ window._pvad = {
   bke:      {color:"#aa9b87", name:"БКЕ"},//
   vostok:   {color:"#1c8f6d", name:"Восток НАО"},//
   nnk:      {color:"#2c41c8", name:"ННК"},//
+  kazmun:   {color:"#02aef0", name:"КазМунайГаз"},
+  novatek:  {color:"#0041ff", name:"Новатэк"},
+  nztrade:  {color:"#52ac62", name:"НЗНП Трейд"},
   other:    {color:"#a1bf65", name:"Прочее"},//
  },
 
@@ -88,6 +91,6 @@ window._pvad = {
   {year:2015, data:{rosneft:180781, lukoil:19975, gazprom:1599,  gpn:192847, bashneft:43943, russneft:34019, tatneft:22332, zn:34878, other:45684}},
   {year:2016, data:{rosneft:207094, lukoil:15868, gazprom:22705, gpn:151416, bashneft:56183, russneft:62056, tatneft:99527, zn:25476, bke:11686, vostok:13872, other:5990}},
   {year:2017, data:{rosneft:{it:120069, gti:60742, sv:80873}, rosneftTotal:261684, lukoil:12447, gazprom:16783, gpn:{it:177647, sv:44382}, gpnTotal:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:{it:4447,gti:54129,sv:7735}, nnkTotal:66311, other:1214}},
-  {year:2018, data:{rosneft:{it:120069, gti:60742, sv:80873}, rosneftTotal:261684, lukoil:12447, gazprom:16783, gpn:{it:177647, sv:44382}, gpnTotal:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:{it:4447,gti:54129,sv:7735}, nnkTotal:66311, other:1214}},
+  {year:2018, data:{rosneft:{it:95211, gti:85999, sv:54471}, rosneftTotal:235681, lukoil:9403, gpn:{it:220613, sv:51802}, gpnTotal:272415, tatneft:93745,  zn:4365, bke:16155, kazmun:111947, novatek:15335, nztrade:9825, other:743}},
  ],
 }

@@ -126,27 +126,27 @@ class Staff extends React.Component {
        <li>
         <div className="icon"><img src={svgIn} alt={"Принято"} /></div>
         <div className="title"><div className="name">Принято</div></div>
-        <div className="data"><div className="value">103 <span className="measure">человека</span></div></div>
+        <div className="data"><div className="value">84 <span className="measure">человек</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgOut} alt={"Уволено"} /></div>
         <div className="title"><div className="name">Уволено</div></div>
-        <div className="data"><div className="value">98 <span className="measure">человек</span></div></div>
+        <div className="data"><div className="value">117 <span className="measure">человек</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgMan} alt={"Мужчины"} /></div>
         <div className="title"><div className="name">Мужчины</div></div>
-        <div className="data"><div className="value">304 <span className="measure">человека</span></div></div>
+        <div className="data"><div className="value">??? 327 ??? <span className="measure">человека</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgWoman} alt={"Женщины"} /></div>
         <div className="title"><div className="name">Женщины</div></div>
-        <div className="data"><div className="value">58 <span className="measure">человек</span></div></div>
+        <div className="data"><div className="value">62 <span className="measure">человек</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgChild} alt={"Родилось"} /></div>
         <div className="title"><div className="name">Родилось</div></div>
-        <div className="data"><div className="value">18 <span className="measure">детей</span></div></div>
+        <div className="data"><div className="value">13 <span className="measure">детей</span></div></div>
        </li>
       </ul>
      </div>
