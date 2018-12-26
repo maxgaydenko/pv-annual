@@ -136,25 +136,21 @@ class ContractorPie extends React.Component {
          <div className="title">
           <i style={{background:d.color}}></i>
           <div className="name" onClick={()=>this.toggleExpanded(d.key)}>{d.name}</div>
-          <div className="percent">{d.percent.toFixed(2)}%</div>
-          {(d.details)? <button className={"toggleButton "+(d.expanded?"expanded":"collapsed")} onClick={()=>this.toggleExpanded(d.key)}></button>: null}
+          <div className="line-value">{numberWithSeparator(d.value)} <span className="measure">тыс.руб</span></div>
+          {/* <div className="percent">{d.percent.toFixed(2)}%</div>
+          {(d.details)? <button className={"toggleButton "+(d.expanded?"expanded":"collapsed")} onClick={()=>this.toggleExpanded(d.key)}></button>: null} */}
          </div>
+         {(d.delta && !d.expanded) && <div className="delta line-delta"><span className={(d.delta>0)?"good":"bad"}>{numberWithSeparator(Math.abs(d.delta))} тыс.руб</span></div>}
          {(d.details && d.expanded)? (
           <div className="details">
            {d.details.map(ds => (
             <div key={ds.label} className="detail-row">
-             <div className="subvalue">{numberWithSeparator(ds.value)} <span className="measure">тыс.руб</span></div>
              <div className="label">{ds.label}</div>
+             <div className="subvalue">{numberWithSeparator(ds.value)} <span className="measure">тыс.руб</span></div>
             </div>
            ))}
           </div>
          ): null}
-         <div className="data">
-          <div className="value">{numberWithSeparator(d.value)} <span className="measure">тыс.руб</span></div>
-          <div className="delta">{(d.delta)?(
-           <span className={(d.delta>0)?"good":"bad"}>{numberWithSeparator(Math.abs(d.delta))} тыс.руб</span>
-          ):""}</div>
-         </div>
         </li>
        ))}
       </ul>

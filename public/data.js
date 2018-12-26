@@ -90,7 +90,7 @@ window._pvad = {
   {year:2014, data:{rosneft:226008, lukoil:36176, gazprom:1663,  gpn:95551,  bashneft:91763, other:57417}},
   {year:2015, data:{rosneft:180781, lukoil:19975, gazprom:1599,  gpn:192847, bashneft:43943, russneft:34019, tatneft:22332, zn:34878, other:45684}},
   {year:2016, data:{rosneft:207094, lukoil:15868, gazprom:22705, gpn:151416, bashneft:56183, russneft:62056, tatneft:99527, zn:25476, bke:11686, vostok:13872, other:5990}},
-  {year:2017, data:{rosneft:{it:120069, gti:60742, sv:80873}, rosneftTotal:261684, lukoil:12447, gazprom:16783, gpn:{it:177647, sv:44382}, gpnTotal:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:{it:4447,gti:54129,sv:7735}, nnkTotal:66311, other:1214}},
+  {year:2017, data:{rosneft:261684, lukoil:12447, gazprom:16783, gpn:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:66311, other:1214}},
   {year:2018, data:{rosneft:{it:95211, gti:85999, sv:54471}, rosneftTotal:235681, lukoil:9403, gpn:{it:220613, sv:51802}, gpnTotal:272415, tatneft:93745,  zn:4365, bke:16155, kazmun:111947, novatek:15335, nztrade:9825, other:743}},
  ],
 }

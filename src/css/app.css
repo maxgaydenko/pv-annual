@@ -238,7 +238,10 @@ html {
  list-style: none;
 }
 .Box .BoxLabels ul li {
- padding: 0 0 20px;
+ padding: 20px 0 0;
+}
+.Box .BoxLabels ul li:first-child {
+ padding-top: 0;
 }
 .Box .BoxLabels ul li .marker {
 }
@@ -277,6 +280,23 @@ html {
 }
 .Box .BoxLabels ul li .value .measure {
  font-size: 16px;
+}
+.Box .BoxLabels ul li .line-value {
+ font-size: 20px;
+ line-height: 24px;
+ margin-left: 40px;
+ align-self: baseline;
+ text-align: right;
+ padding-right: 10px;
+ flex: 2;
+ /* width: 160px; */
+}
+.Box .BoxLabels ul li .line-value .measure {
+ font-size: 16px;
+}
+.Box .BoxLabels ul li .line-delta {
+ text-align: right;
+ padding-right: 10px;
 }
 .Box .BoxLabels ul li .delta {
  font-size: 16px;
@@ -346,20 +366,24 @@ html {
 }
 .PieBox .details {
  padding-left: 40px;
+ padding-right: 10px;
  padding-bottom: 5px;
 }
 .PieBox .detail-row {
  display: flex;
- border-bottom: 1px #AAA dotted;
+ border-top: 1px #AAA dotted;
+ padding: 4px 0;
 }
 .PieBox .detail-row .label {
  align-self: baseline;
  font-size: 20px;
 }
 .PieBox .detail-row .subvalue {
+ flex: 2;
  width: 170px;
  align-self: baseline;
  font-size: 20px;
+ text-align: right;
 }
 .PieBox .detail-row .subvalue .measure {
  font-size: 16px;

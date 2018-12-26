@@ -3,6 +3,9 @@ import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
 import { numberWithSeparator } from '../utils';
 
+const showProceedBar = false;
+const showStaffBar = false;
+
 class ProceedsStaff extends React.Component {
  componentWillMount() {
   const persons = window._pvad.staff.reduce((p,c)=>{
