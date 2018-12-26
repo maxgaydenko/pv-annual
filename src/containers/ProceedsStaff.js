@@ -3,8 +3,8 @@ import AmCharts from "@amcharts/amcharts3-react";
 import Menu from "./Menu";
 import { numberWithSeparator } from '../utils';
 
-const showProceedBar = false;
-const showStaffBar = false;
+const showProceedBar = true;
+const showStaffBar = true;
 
 class ProceedsStaff extends React.Component {
  componentWillMount() {
@@ -35,7 +35,19 @@ class ProceedsStaff extends React.Component {
 
  render() {
   const graphs = [];
-  graphs.push({
+  graphs.push(showStaffBar? {
+   title: "Сотрудники",
+   valueAxis: "totalAxis",
+   valueField: "persons",
+   balloonText: "[[value]] чел.",
+   bullet: "none",
+   fillAlphas: .8,
+   fontSize: 18,
+   lineColor: "#d1cf00",
+   lineThickness: 1,
+   color: "#d1cf00",
+   type: "column"
+  }: {
    title: "Сотрудники",
    valueAxis: "totalAxis",
    valueField: "persons",
@@ -46,7 +58,30 @@ class ProceedsStaff extends React.Component {
    lineColor: "#d1cf00",
    lineThickness: 4,
    color: "#666",
-   // type: "column"
+  });
+  graphs.push(showProceedBar? {
+   title: "Выручка",
+   valueAxis: "totalAxis2",
+   valueField: "total",
+   balloonText: "[[value]] тыс.руб.",
+   bullet: "none",
+   fillAlphas: .8,
+   fontSize: 18,
+   lineColor: "#607985",
+   lineThickness: 1,
+   color: "#666",
+   type: "column"
+  }: {
+   title: "Выручка",
+   valueAxis: "totalAxis2",
+   valueField: "total",
+   balloonText: "[[value]] тыс.руб.",
+   bullet: "circle",
+   bulletSize: 12,
+   fontSize: 18,
+   lineColor: "#607985",
+   lineThickness: 4,
+   color: "#666",
   });
   graphs.push({
    title: "Выручка на сотрудника",
@@ -61,21 +96,6 @@ class ProceedsStaff extends React.Component {
    lineColor: "#ca4440",//607985",
    lineThickness: 4,
   });
-  if(true) {
-   graphs.push({
-    title: "Выручка",
-    valueAxis: "totalAxis2",
-    valueField: "total",
-    balloonText: "[[value]] тыс.руб.",
-    bullet: "circle",
-    bulletSize: 12,
-    fontSize: 18,
-    lineColor: "#607985",
-    lineThickness: 4,
-    color: "#666",
-    // type: "column"
-   });
-  }
 
   const config = {
    type: "serial",
@@ -95,7 +115,7 @@ class ProceedsStaff extends React.Component {
     labelsEnabled: false,
     axisAlpha: 0,
     gridAlpha: 0,
-    maximum: 500,
+    maximum: 600,
    }, {
     id: "totalAxis2",
     position: "right",
@@ -103,7 +123,7 @@ class ProceedsStaff extends React.Component {
     labelsEnabled: false,
     axisAlpha: 0,
     gridAlpha: 0,
-    maximum: 1000000,
+    maximum: 1200000,
    }, {
     id: "ppAxis",
    }],
