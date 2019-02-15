@@ -9,21 +9,39 @@ const showStaffBar = true;
 class ProceedsStaff extends React.Component {
  componentWillMount() {
   const persons = window._pvad.staff.reduce((p,c)=>{
-   p[c.year] = 0;
+   p[c.year] = {total:0,it:0,sv:0,gti:0};
    Object.keys(c.data).forEach(key => {
-    p[c.year] += c.data[key];
-   })
+    p[c.year].total += c.data[key];
+   });
+   p[c.year].it = c.data['it']? c.data['it']: 0;
+   p[c.year].sv = c.data['sv']? c.data['sv']: 0;
+   p[c.year].gti = c.data['gti']? c.data['gti']: 0;
    return p;
   }, {});
+  // console.table(persons);
   const dataProvider = window._pvad.proceeds.reduce((p,c)=>{
    let item = {year:c.year, total:0};
    Object.keys(c.data).forEach(key => {
     item.total += c.data[key];
    });
    if(persons[c.year]) {
-    item.pp = Math.round(item.total/persons[c.year]);
-    item.ppLabel = numberWithSeparator(item.pp);
-    item.persons = persons[c.year];
+    if(persons[c.year].total) {
+     item.pp = Math.round(item.total/persons[c.year].total);
+     item.ppLabel = numberWithSeparator(item.pp);
+     item.persons = persons[c.year].total;
+    }
+    if(persons[c.year].it && c.data['it']) {
+     item.it = Math.round(c.data['it']/persons[c.year].it);
+     item.itLabel = numberWithSeparator(item.it);
+    }
+    if(persons[c.year].sv && c.data['sv']) {
+     item.sv = Math.round(c.data['sv']/persons[c.year].sv);
+     item.svLabel = numberWithSeparator(item.sv);
+    }
+    if(persons[c.year].gti && c.data['gti']) {
+     item.gti = Math.round(c.data['gti']/persons[c.year].gti);
+     item.gtiLabel = numberWithSeparator(item.gti);
+    }
    }
    p.push(item);
    return p;
@@ -39,61 +57,100 @@ class ProceedsStaff extends React.Component {
    title: "Сотрудники",
    valueAxis: "totalAxis",
    valueField: "persons",
-   balloonText: "[[value]] чел.",
+   balloonText: "Всего: [[value]] чел.",
    bullet: "none",
    fillAlphas: .8,
    fontSize: 18,
-   lineColor: "#d1cf00",
+   lineColor: "#aa9b87",
    lineThickness: 1,
-   color: "#d1cf00",
+   color: "#aa9b87",
    type: "column"
   }: {
    title: "Сотрудники",
    valueAxis: "totalAxis",
    valueField: "persons",
-   balloonText: "[[value]] чел.",
+   balloonText: "Всего: [[value]] чел.",
    bullet: "circle",
    bulletSize: 12,
    fontSize: 18,
-   lineColor: "#d1cf00",
+   lineColor: "#999999",
    lineThickness: 4,
-   color: "#666",
+   color: "#999999",
   });
   graphs.push(showProceedBar? {
    title: "Выручка",
    valueAxis: "totalAxis2",
    valueField: "total",
-   balloonText: "[[value]] тыс.руб.",
+   balloonText: "Выручка: [[value]] тыс.руб.",
    bullet: "none",
    fillAlphas: .8,
    fontSize: 18,
-   lineColor: "#607985",
+   lineColor: "#60943f",
    lineThickness: 1,
-   color: "#666",
+   color: "#60943f",
    type: "column"
   }: {
    title: "Выручка",
    valueAxis: "totalAxis2",
    valueField: "total",
-   balloonText: "[[value]] тыс.руб.",
+   balloonText: "Выручка: [[value]] тыс.руб.",
    bullet: "circle",
    bulletSize: 12,
    fontSize: 18,
-   lineColor: "#607985",
+   lineColor: "#60943f",
    lineThickness: 4,
-   color: "#666",
+   color: "#60943f",
   });
   graphs.push({
    title: "Выручка на сотрудника",
    valueAxis: "ppAxis",
    valueField: "pp",
-   labelText: "[[ppLabel]]",
+   // labelText: "[[ppLabel]]",
    labelOffset: 20,
-   balloonText: "[[value]] тыс.руб.",
+   balloonText: "На сотрудника [[value]] тыс.руб.",
+   bullet: "circle",
+   bulletSize: 12,
+   fontSize: 24,
+   lineColor: "#607985",//607985",
+   lineThickness: 4,
+  });
+  graphs.push({
+   title: "ИТ",
+   valueAxis: "ppAxis",
+   valueField: "it",
+   // labelText: "[[itLabel]]",
+   // labelOffset: 20,
+   balloonText: "ИТ: [[value]] тыс.руб.",
    bullet: "circle",
    bulletSize: 12,
    fontSize: 24,
    lineColor: "#ca4440",//607985",
+   lineThickness: 4,
+  });
+  graphs.push({
+   title: "Супервайзинг",
+   valueAxis: "ppAxis",
+   valueField: "sv",
+   // labelText: "[[svLabel]]",
+   // labelOffset: 20,
+   balloonText: "Супервайзинг: [[value]] тыс.руб.",
+   bullet: "circle",
+   bulletSize: 12,
+   fontSize: 24,
+   lineColor: "#d1cf00",//607985",
+   lineThickness: 4,
+  });
+  graphs.push({
+   title: "ГТИ",
+   valueAxis: "ppAxis",
+   valueField: "gti",
+   // labelText: "[[gtiLabel]]",
+   // labelOffset: 20,
+   balloonText: "ГТИ: [[value]] тыс.руб.",
+   bullet: "circle",
+   bulletSize: 12,
+   fontSize: 24,
+   lineColor: "#f39b71",//607985",
    lineThickness: 4,
   });
 

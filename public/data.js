@@ -31,7 +31,7 @@ window._pvad = {
   {year:2018, data:{aup:47, sv:94, it:104, prj:2, gti:70, usu:10}},
    */
   {year:2011, data:{aup:20, sv:60,  it:46,  prj:5, gti:24}}, // 159 - 155 = 4 (4:it)
-  {year:2012, data:{aup:28, sv:70,  it:51,  prj:5, gti:31, usu:12}}, // 228 - 197 = 31 (20:gti,11:sv)
+  {year:2012, data:{aup:32, sv:70,  it:46,  prj:5, gti:31, usu:12}}, // 228 - 197 = 31 (20:gti,11:sv)
   {year:2013, data:{aup:30, sv:75,  it:63,  prj:2, gti:45, usu:7}}, // 247 - 222 = 25 (25:gti)
   {year:2014, data:{aup:31, sv:76,  it:64,  prj:2, gti:53, usu:9}}, // 256 - 235 = 21 (21:gti)
   {year:2015, data:{aup:40, sv:85,  it:75,  prj:2, gti:56, usu:7}}, // 296 - 265 = 31 (10:sv,10:it,11:gti)
