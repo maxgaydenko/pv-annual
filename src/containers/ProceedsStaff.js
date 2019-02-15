@@ -172,7 +172,7 @@ class ProceedsStaff extends React.Component {
     labelsEnabled: false,
     axisAlpha: 0,
     gridAlpha: 0,
-    maximum: 600,
+    maximum: 1800,
    }, {
     id: "totalAxis2",
     position: "right",
@@ -180,7 +180,7 @@ class ProceedsStaff extends React.Component {
     labelsEnabled: false,
     axisAlpha: 0,
     gridAlpha: 0,
-    maximum: 1200000,
+    maximum: 3600000,
    }, {
     id: "ppAxis",
    }],

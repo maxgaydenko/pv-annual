@@ -30,14 +30,14 @@ window._pvad = {
   {year:2017, data:{aup:43, sv:118, it:101, prj:2, gti:88, usu:10}},
   {year:2018, data:{aup:47, sv:94, it:104, prj:2, gti:70, usu:10}},
    */
-  {year:2011, data:{aup:20, sv:60,  it:46,  prj:5, gti:24}}, // 159 - 155 = 4 (4:it)
-  {year:2012, data:{aup:32, sv:70,  it:46,  prj:5, gti:31, usu:12}}, // 228 - 197 = 31 (20:gti,11:sv)
-  {year:2013, data:{aup:30, sv:75,  it:63,  prj:2, gti:45, usu:7}}, // 247 - 222 = 25 (25:gti)
-  {year:2014, data:{aup:31, sv:76,  it:64,  prj:2, gti:53, usu:9}}, // 256 - 235 = 21 (21:gti)
-  {year:2015, data:{aup:40, sv:85,  it:75,  prj:2, gti:56, usu:7}}, // 296 - 265 = 31 (10:sv,10:it,11:gti)
-  {year:2016, data:{aup:42, sv:106, it:84,  prj:2, gti:79, usu:8}}, // 357 - 321 = 36 (16:sv,10:it,10:gti)
-  {year:2017, data:{aup:43, sv:113, it:96, prj:2, gti:88, usu:10}}, // 362 - 352 = 10 (5:sv,5:it)
-  {year:2018, data:{aup:47, sv:94, it:114, prj:2, gti:70, usu:10}}, // 327 - 337 = +10 (10:it)
+  {year:2011, data:{aup:20, sv:60,  it:46,  prj:5, gti:24}},
+  {year:2012, data:{aup:28, sv:76,  it:51,  prj:5, gti:37}},
+  {year:2013, data:{aup:22, sv:82,  it:55,  prj:2, gti:61}},
+  {year:2014, data:{aup:24, sv:80,  it:57,  prj:2, gti:72}},
+  {year:2015, data:{aup:61, sv:71,  it:70,  prj:2, gti:61}},
+  {year:2016, data:{aup:32, sv:121, it:86,  prj:2, gti:80}},
+  {year:2017, data:{aup:41, sv:136, it:91,  prj:2, gti:82}},
+  {year:2018, data:{aup:44, sv:121, it:100, prj:2, gti:70}},
  ],
 
  // выручка (подразделения)
