@@ -136,12 +136,12 @@ class Staff extends React.Component {
        <li>
         <div className="icon"><img src={svgMan} alt={"Мужчины"} /></div>
         <div className="title"><div className="name">Мужчины</div></div>
-        <div className="data"><div className="value">265 <span className="measure">человек</span></div></div>
+        <div className="data"><div className="value">270 <span className="measure">человек</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgWoman} alt={"Женщины"} /></div>
         <div className="title"><div className="name">Женщины</div></div>
-        <div className="data"><div className="value">62 <span className="measure">человека</span></div></div>
+        <div className="data"><div className="value">67 <span className="measure">человек</span></div></div>
        </li>
        <li>
         <div className="icon"><img src={svgChild} alt={"Родилось"} /></div>
