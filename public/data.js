@@ -28,7 +28,7 @@ window._pvad = {
   {year:2016, data:{aup:32, sv:121, it:86,  prj:2, gti:80}},
   {year:2017, data:{aup:41, sv:136, it:91,  prj:2, gti:82}},
   {year:2018, data:{aup:44, sv:121, it:100, prj:2, gti:70}},
-  {year:2019, data:{aup:52, sv:83,  it:110, prj:0, gti:77}},
+  {year:2019, data:{aup:50, sv:83,  it:110, usu:2, gti:77}},
  ],
 
  // выручка (подразделения)
