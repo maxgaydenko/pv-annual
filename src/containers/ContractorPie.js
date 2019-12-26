@@ -4,45 +4,54 @@ import Menu from "./Menu";
 import {numberWithSeparator} from "../utils";
 
 
-
 class ContractorPie extends React.Component {
  componentWillMount() {
-  const yearData = window._pvad.contractorData.filter(f => f.year===2018)[0];
-  const yearDataPrev = window._pvad.contractorData.filter(f => f.year===2017)[0];
+  const yearData = window._pvad.contractorData.filter(f => f.year === 2019)[0];
+  const yearDataPrev = window._pvad.contractorData.filter(f => f.year === 2018)[0];
 
-  const dataProviderCurrent = yearData? Object.keys(yearData.data).map(key=>{
+  const dataProviderCurrent = yearData ? Object.keys(yearData.data).map(key => {
    const contractor = window._pvad.contractors[key];
-   if(contractor) {
+   if (contractor) {
     const isComplex = (typeof yearData.data[key] === "object");
     return {
      key: key,
      name: contractor.name,
      color: contractor.color,
-     value: (isComplex? Object.keys(yearData.data[key]).reduce((p,c)=>{
+     value: (isComplex ? Object.keys(yearData.data[key]).reduce((p, c) => {
       return p + yearData.data[key][c];
-     }, 0): yearData.data[key]),
-     details: (isComplex? Object.keys(yearData.data[key]).map(c => ({label:window._pvad.proceedsDepartments[c].name, value:yearData.data[key][c]})): null),
-     expanded: (isComplex? false: null)
+     }, 0) : yearData.data[key]),
+     details: (isComplex ? Object.keys(yearData.data[key]).map(c => ({
+      label: window._pvad.proceedsDepartments[c].name,
+      value: yearData.data[key][c]
+     })) : null),
+     expanded: (isComplex ? false : null)
     }
    }
    return null;
    // return contractor? {key:c, name:contractor.name, color:contractor.color, value:yearData.data[c]}: null;
-  }).filter(f => f !== null): [];
-  const total = dataProviderCurrent.reduce((p,c) => (p+c.value), 0);
+  }).filter(f => f !== null) : [];
+  const total = dataProviderCurrent.reduce((p, c) => (p + c.value), 0);
   const dataProvider = dataProviderCurrent.map(dpc => {
-   const prevValue = (yearDataPrev && yearDataPrev.data[dpc.key])? yearDataPrev.data[dpc.key]: null;
-   const delta = (prevValue !== null)? (dpc.value - prevValue): null;
-   const percent = 100*dpc.value/total;
+   const prevValue = (yearDataPrev && yearDataPrev.data[dpc.key]) ? yearDataPrev.data[dpc.key] : null;
+   const delta = (prevValue !== null) ? (dpc.value - prevValue) : null;
+   const percent = 100 * dpc.value / total;
    // const label = (percent >= 5)? percent.toFixed(2)+"%": "";
    return {...dpc, prevValue, delta, percent};
-  }).sort((a,b) => (a.value > b.value)? -1: 1);
+  }).sort((a, b) => {
+   console.log('a,b', a, b);
+   if(a.key === 'other')
+    return 1;
+   if(b.key === 'other')
+    return -1;
+   return (a.value > b.value) ? -1 : 1;
+  });
   this.setState({dataProvider});
-  window.document.title = "Выручка по контрагентам за 2018 год";
+  window.document.title = "Выручка по контрагентам за 2019 год";
  }
 
  dataProviderFunction = () => {
-  return this.state.dataProvider.reduce((p,c) => {
-   if(c.expanded) {
+  return this.state.dataProvider.reduce((p, c) => {
+   if (c.expanded) {
     c.details.forEach(dt => {
      const percent = dt.label;
      const value = dt.value;
@@ -59,7 +68,7 @@ class ContractorPie extends React.Component {
 
  toggleExpanded = (key) => {
   const dataProvider = this.state.dataProvider.map(d => {
-   if(d.key === key && d.expanded !== null) {
+   if (d.key === key && d.expanded !== null) {
     const expanded = !d.expanded;
     return {...d, expanded};
    }
@@ -85,18 +94,18 @@ class ContractorPie extends React.Component {
    labelsEnabled: false,
    pullOutRadius: "10%",
    innerRadius: "50%",
-   balloon:{
-    fixedPosition:true,
+   balloon: {
+    fixedPosition: true,
    },
-   balloonFunction:(a) => {
+   balloonFunction: (a) => {
     const row = a.dataContext;
-    const deltaSpan = (row.delta != null)? ("<span style='font-size:80%; color:"+((row.delta>0)?"#090":"#D00")+"'>"+((row.delta>0)?"+":"")+numberWithSeparator(row.delta)+" тыс.руб</span>"): ""
-    return "<b>"+row.name+"</b><br/>" + (parseFloat(row.percent)? (row.percent.toFixed(2)+"%"): row.percent) + "<br/>" + numberWithSeparator(row.value) + " тыс.руб<br/>"+deltaSpan;
+    const deltaSpan = (row.delta != null) ? ("<span style='font-size:80%; color:" + ((row.delta > 0) ? "#090" : "#D00") + "'>" + ((row.delta > 0) ? "+" : "") + numberWithSeparator(row.delta) + " тыс.руб</span>") : ""
+    return "<b>" + row.name + "</b><br/>" + (parseFloat(row.percent) ? (row.percent.toFixed(2) + "%") : row.percent) + "<br/>" + numberWithSeparator(row.value) + " тыс.руб<br/>" + deltaSpan;
    },
    listeners: [
     {
-     event:"clickSlice",
-     method:(e)=>{
+     event: "clickSlice",
+     method: (e) => {
       const chart = e.chart;
       chart.validateData();
       // const chart = e.chart;
@@ -122,8 +131,8 @@ class ContractorPie extends React.Component {
   return (
    <div className="App-body">
     <header>
-     <h1>Контрагенты за 2018 год</h1>
-     <Menu selected="contractor-pie" />
+     <h1>Контрагенты за 2019 год</h1>
+     <Menu selected="contractor-pie"/>
     </header>
     <div className="Chart Box PieBox">
      <div className="BoxChart">
@@ -134,14 +143,16 @@ class ContractorPie extends React.Component {
        {this.state.dataProvider.map(d => (
         <li key={d.key}>
          <div className="title">
-          <i style={{background:d.color}}></i>
-          <div className="name" onClick={()=>this.toggleExpanded(d.key)}>{d.name}</div>
+          <i style={{background: d.color}}></i>
+          <div className="name" onClick={() => this.toggleExpanded(d.key)}>{d.name}</div>
           <div className="line-value">{numberWithSeparator(d.value)} <span className="measure">тыс.руб</span></div>
           {/* <div className="percent">{d.percent.toFixed(2)}%</div>
           {(d.details)? <button className={"toggleButton "+(d.expanded?"expanded":"collapsed")} onClick={()=>this.toggleExpanded(d.key)}></button>: null} */}
          </div>
-         {(d.delta && !d.expanded) && <div className="delta line-delta"><span className={(d.delta>0)?"good":"bad"}>{numberWithSeparator(Math.abs(d.delta))} тыс.руб</span></div>}
-         {(d.details && d.expanded)? (
+         {(d.delta && !d.expanded) &&
+         <div className="delta line-delta"><span className={(d.delta > 0) ? "good" : "bad"}>{numberWithSeparator(Math.abs(d.delta))} тыс.руб</span>
+         </div>}
+         {(d.details && d.expanded) ? (
           <div className="details">
            {d.details.map(ds => (
             <div key={ds.label} className="detail-row">
@@ -150,7 +161,7 @@ class ContractorPie extends React.Component {
             </div>
            ))}
           </div>
-         ): null}
+         ) : null}
         </li>
        ))}
       </ul>

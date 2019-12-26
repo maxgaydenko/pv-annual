@@ -11,7 +11,7 @@ class Home extends React.Component {
  render() {
   return (
    <div className="App-home">
-    <h1>Ежегодный отчёт за 2018 год</h1>
+    <h1>Ежегодный отчёт за 2019 год</h1>
     <div className="logo-box">
      <Link to={"/staff"}><img src={logoBox} alt={"Petroviser"} /></Link>
     </div>
