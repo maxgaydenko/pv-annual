@@ -28,7 +28,7 @@ window._pvad = {
   {year:2016, data:{aup:32, sv:121, it:86,  prj:2, gti:80}},
   {year:2017, data:{aup:41, sv:136, it:91,  prj:2, gti:82}},
   {year:2018, data:{aup:44, sv:121, it:100, prj:2, gti:70}},
-  {year:2019, data:{aup:44, sv:121, it:100, prj:2, gti:70-15}},
+  {year:2019, data:{aup:52, sv:83,  it:110, prj:0, gti:77}},
  ],
 
  // выручка (подразделения)
@@ -55,7 +55,7 @@ window._pvad = {
   {year:2016, data:{sv:267425, it:272669, gti:136788, oz:576}},
   {year:2017, data:{sv:289575, it:340466, gti:136597, oz:576}},
   {year:2018, data:{sv:338131, it:351094, gti:86631, oz:576}},
-  {year:2019, data:{sv:207645, it:390022, gti:133368, oz:0}},
+  {year:2019, data:{sv:207645, it:390022, gti:133368, oz:693}},
  ],
 
  // выручка (контрагенты)
@@ -88,7 +88,7 @@ window._pvad = {
   {year:2017, data:{rosneft:261684, lukoil:12447, gazprom:16783, gpn:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:66311, other:1214}},
   {year:2018, data:{rosneft:235681, lukoil:9403, gpn:272415, tatneft:94745,  zn:4365, bke:17155, kazmun:111947, novatek:15335, nztrade:9825, other:2694+866}},
 
-  {year:2019, data:{rosneft:{it:113940, gti:128064, sv:63259}, rosneftTotal:305263, lukoil:4690, gpn:{it:236609, sv:45310}, gpnTotal:281919, tatneft:57046,  zn:12425, bke:13344, gazprom:7205, ink:4384, taymyr:15755, nztrade:21348, other:7657}},
+  {year:2019, data:{rosneft:{it:113940, gti:128064, sv:63259}, rosneftTotal:305263, lukoil:4690, gpn:{it:236609, sv:45310}, gpnTotal:281919, tatneft:57046,  zn:12425, bke:13344, gazprom:7205, ink:4384, taymyr:15755, nztrade:21348, other:7657 + 693}},
  ],
  // 776432 - 771566 = 4866 (1000:gpn.it,1000:gpn.sv,1000:tatneft,1000:bke,1866:other)
 }
