@@ -123,31 +123,31 @@ class Staff extends React.Component {
      </div>
      <div className="BoxLabels">
       <ul>
-       <li>
-        <div className="icon"><img src={svgIn} alt={"Принято"} /></div>
-        <div className="title"><div className="name">Принято</div></div>
-        <div className="data"><div className="value">71 <span className="measure">человек</span></div></div>
-       </li>
-       <li>
-        <div className="icon"><img src={svgOut} alt={"Уволено"} /></div>
-        <div className="title"><div className="name">Уволено</div></div>
-        <div className="data"><div className="value">79 <span className="measure">человек</span></div></div>
-       </li>
-       <li>
-        <div className="icon"><img src={svgMan} alt={"Мужчины"} /></div>
-        <div className="title"><div className="name">Мужчины</div></div>
-        <div className="data"><div className="value">262 <span className="measure">человек</span></div></div>
-       </li>
-       <li>
-        <div className="icon"><img src={svgWoman} alt={"Женщины"} /></div>
-        <div className="title"><div className="name">Женщины</div></div>
-        <div className="data"><div className="value">60 <span className="measure">человек</span></div></div>
-       </li>
-       <li>
-        <div className="icon"><img src={svgChild} alt={"Родилось"} /></div>
-        <div className="title"><div className="name">Родилось</div></div>
-        <div className="data"><div className="value">7 <span className="measure">детей</span></div></div>
-       </li>
+       {window._pvad.staffSidebar.in && <li>
+        <div className="icon"><img src={svgIn} alt={window._pvad.staffSidebar.in.title} /></div>
+        <div className="title"><div className="name">{window._pvad.staffSidebar.in.title}</div></div>
+        <div className="data"><div className="value">{window._pvad.staffSidebar.in.count} <span className="measure">{window._pvad.staffSidebar.in.measure}</span></div></div>
+       </li>}
+       {window._pvad.staffSidebar.out && <li>
+        <div className="icon"><img src={svgOut} alt={window._pvad.staffSidebar.out.title} /></div>
+        <div className="title"><div className="name">{window._pvad.staffSidebar.out.title}</div></div>
+        <div className="data"><div className="value">{window._pvad.staffSidebar.out.count} <span className="measure">{window._pvad.staffSidebar.out.measure}</span></div></div>
+       </li>}
+       {window._pvad.staffSidebar.male && <li>
+        <div className="icon"><img src={svgMan} alt={window._pvad.staffSidebar.male.title} /></div>
+        <div className="title"><div className="name">{window._pvad.staffSidebar.male.title}</div></div>
+        <div className="data"><div className="value">{window._pvad.staffSidebar.male.count} <span className="measure">{window._pvad.staffSidebar.male.measure}</span></div></div>
+       </li>}
+       {window._pvad.staffSidebar.female && <li>
+        <div className="icon"><img src={svgWoman} alt={window._pvad.staffSidebar.female.title} /></div>
+        <div className="title"><div className="name">{window._pvad.staffSidebar.female.title}</div></div>
+        <div className="data"><div className="value">{window._pvad.staffSidebar.female.count} <span className="measure">{window._pvad.staffSidebar.female.measure}</span></div></div>
+       </li>}
+       {window._pvad.staffSidebar.child && <li>
+        <div className="icon"><img src={svgChild} alt={window._pvad.staffSidebar.child.title} /></div>
+        <div className="title"><div className="name">{window._pvad.staffSidebar.child.title}</div></div>
+        <div className="data"><div className="value">{window._pvad.staffSidebar.child.count} <span className="measure">{window._pvad.staffSidebar.child.measure}</span></div></div>
+       </li>}       
       </ul>
      </div>
      <StaffPopup year={this.state.year} onClose={this.closePopup} />

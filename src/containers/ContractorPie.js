@@ -6,8 +6,8 @@ import {numberWithSeparator} from "../utils";
 
 class ContractorPie extends React.Component {
  componentWillMount() {
-  const yearData = window._pvad.contractorData.filter(f => f.year === 2019)[0];
-  const yearDataPrev = window._pvad.contractorData.filter(f => f.year === 2018)[0];
+  const yearData = window._pvad.contractorData.filter(f => f.year === window._pvad.currentYear)[0];
+  const yearDataPrev = window._pvad.contractorData.filter(f => f.year === window._pvad.currentYear-1)[0];
 
   const dataProviderCurrent = yearData ? Object.keys(yearData.data).map(key => {
    const contractor = window._pvad.contractors[key];
@@ -46,7 +46,7 @@ class ContractorPie extends React.Component {
    return (a.value > b.value) ? -1 : 1;
   });
   this.setState({dataProvider});
-  window.document.title = "Выручка по контрагентам за 2019 год";
+  window.document.title = "Выручка по контрагентам за "+window._pvad.currentYear+" год";
  }
 
  dataProviderFunction = () => {
@@ -131,7 +131,7 @@ class ContractorPie extends React.Component {
   return (
    <div className="App-body">
     <header>
-     <h1>Контрагенты за 2019 год</h1>
+     <h1>Контрагенты за {window._pvad.currentYear} год</h1>
      <Menu selected="contractor-pie"/>
     </header>
     <div className="Chart Box PieBox">

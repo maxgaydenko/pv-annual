@@ -3,7 +3,15 @@ function r(limit) {
 }
 
 window._pvad = {
-
+ title: "",
+ currentYear: 2020,
+ staffSidebar: {
+  in: {title: "Принято", count: 26, measure: "человек"},
+  out: {title: "Уволено", count: 67, measure: "человек"},
+  male: {title: "Мужчины", count: 218, measure: "человек"},
+  female: {title: "Женщины", count: 51, measure: "человек"},
+  child: {title: "Родилось", count: 7, measure: "детей"},
+ },
  // численность (подразделения)
  staffDepartments: {
   aup: {color:"#723425", name:"АУП", full:"АУП"},//
@@ -29,6 +37,7 @@ window._pvad = {
   {year:2017, data:{aup:41, sv:136, it:91,  prj:2, gti:82}},
   {year:2018, data:{aup:44, sv:121, it:100, prj:2, gti:70}},
   {year:2019, data:{aup:50, sv:84,  it:110, gti:78}},
+  {year:2020, data:{aup:48, sv:61,  it:100, gti:60}},
  ],
 
  // выручка (подразделения)
@@ -56,6 +65,7 @@ window._pvad = {
   {year:2017, data:{sv:289575, it:340466, gti:136597, oz:576}},
   {year:2018, data:{sv:338131, it:351094, gti:86631, oz:576}},
   {year:2019, data:{sv:207645, it:390022, gti:133368, oz:693}},
+  {year:2020, data:{sv:144635, it:365090, gti: 78537, oz:0}},
  ],
 
  // выручка (контрагенты)
@@ -80,6 +90,7 @@ window._pvad = {
 
   taymyr:   {color:"#276207", name:"Таймырнефтегаз"},
   ink:      {color:"#bce3e9", name:"ИНК"},
+  novpotok: {color:"#03a63c", name:"Новый Поток"},
 
   other:    {color:"#a1bf65", name:"Прочее"},//
  },
@@ -88,7 +99,9 @@ window._pvad = {
   {year:2017, data:{rosneft:261684, lukoil:12447, gazprom:16783, gpn:222029, russneft:79100, tatneft:80265,  zn:8310, bke:25174, nnk:66311, other:1214}},
   {year:2018, data:{rosneft:235681, lukoil:9403, gpn:272415, tatneft:94745,  zn:4365, bke:17155, kazmun:111947, novatek:15335, nztrade:9825, other:2694+866}},
 
-  {year:2019, data:{rosneft:{it:113940, gti:128064, sv:63259}, rosneftTotal:305263, lukoil:4690, gpn:{it:236609, sv:45310}, gpnTotal:281919, tatneft:57046,  zn:12425, bke:13344, gazprom:7205, ink:4384, taymyr:15755, nztrade:21348, other:7657 + 693}},
+  // {year:2019, data:{rosneft:{it:113940, gti:128064, sv:63259}, rosneftTotal:305263, lukoil:4690, gpn:{it:236609, sv:45310}, gpnTotal:281919, tatneft:57046,  zn:12425, bke:13344, gazprom:7205, ink:4384, taymyr:15755, nztrade:21348, other:7657 + 693}},
+  {year:2019, data:{rosneft:305263, lukoil:4690, gpn:281919, tatneft:57046,  zn:12425, bke:13344, gazprom:7205, ink:4384, taymyr:15755, nztrade:21348, other:7657 + 693}},
+  {year:2020, data:{rosneft:{it:104651, gti:51395, sv:51825}, rosneftTotal:207872, lukoil:10179, gpn:{it:181170, sv:0}, gpnTotal:181170, tatneft:15078,  zn:20857, bke:26880, gazprom:56087, ink:22385, novpotok:32837, other:14725}},
  ],
  // 776432 - 771566 = 4866 (1000:gpn.it,1000:gpn.sv,1000:tatneft,1000:bke,1866:other)
 }
